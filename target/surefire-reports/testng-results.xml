@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-09-23T15:17:04Z" name="Command line suite" finished-at="2020-09-23T15:17:53Z" duration-ms="48765">
+    <groups>
+    </groups>
+    <test started-at="2020-09-23T15:17:04Z" name="Command line test" finished-at="2020-09-23T15:17:53Z" duration-ms="48765">
+      <class name="LoginTest">
+        <test-method is-config="true" signature="SetUpDriver()[pri:0, instance:LoginTest@128d2484]" started-at="2020-09-23T15:17:05Z" name="SetUpDriver" finished-at="2020-09-23T15:17:10Z" duration-ms="5176" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SetUpDriver -->
+        <test-method signature="Login_Failure_IncorrectCredentials()[pri:0, instance:LoginTest@128d2484]" started-at="2020-09-23T15:17:10Z" name="Login_Failure_IncorrectCredentials" finished-at="2020-09-23T15:17:17Z" duration-ms="6859" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_Failure_IncorrectCredentials -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:LoginTest@128d2484]" started-at="2020-09-23T15:17:17Z" name="cleanUp" finished-at="2020-09-23T15:17:17Z" duration-ms="749" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method is-config="true" signature="SetUpDriver()[pri:0, instance:LoginTest@128d2484]" started-at="2020-09-23T15:17:17Z" name="SetUpDriver" finished-at="2020-09-23T15:17:21Z" duration-ms="3304" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SetUpDriver -->
+        <test-method signature="Login_Failure_InvalidEmail()[pri:0, instance:LoginTest@128d2484]" started-at="2020-09-23T15:17:21Z" name="Login_Failure_InvalidEmail" finished-at="2020-09-23T15:17:28Z" duration-ms="7509" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_Failure_InvalidEmail -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:LoginTest@128d2484]" started-at="2020-09-23T15:17:28Z" name="cleanUp" finished-at="2020-09-23T15:17:29Z" duration-ms="708" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method is-config="true" signature="SetUpDriver()[pri:0, instance:LoginTest@128d2484]" started-at="2020-09-23T15:17:29Z" name="SetUpDriver" finished-at="2020-09-23T15:17:32Z" duration-ms="3335" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SetUpDriver -->
+        <test-method signature="Login_Failure_InvalidPassword()[pri:0, instance:LoginTest@128d2484]" started-at="2020-09-23T15:17:32Z" name="Login_Failure_InvalidPassword" finished-at="2020-09-23T15:17:40Z" duration-ms="7953" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_Failure_InvalidPassword -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:LoginTest@128d2484]" started-at="2020-09-23T15:17:40Z" name="cleanUp" finished-at="2020-09-23T15:17:41Z" duration-ms="729" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method is-config="true" signature="SetUpDriver()[pri:0, instance:LoginTest@128d2484]" started-at="2020-09-23T15:17:41Z" name="SetUpDriver" finished-at="2020-09-23T15:17:44Z" duration-ms="3286" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SetUpDriver -->
+        <test-method signature="Login_Successful()[pri:0, instance:LoginTest@128d2484]" started-at="2020-09-23T15:17:44Z" name="Login_Successful" finished-at="2020-09-23T15:17:53Z" duration-ms="8403" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_Successful -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:LoginTest@128d2484]" started-at="2020-09-23T15:17:53Z" name="cleanUp" finished-at="2020-09-23T15:17:53Z" duration-ms="722" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- LoginTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>
