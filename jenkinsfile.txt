@@ -1,10 +1,17 @@
 pipeline {
         agent any
+        tools {
+            maven 'Maven 3.6.3'
+        }        
+
                 stages {
-                        stage('One') {
+                        stage('Checkout') {
                                 steps {
-                                        echo 'Hi, this is greg'
+                                        git credentialsId: 'github', url: 'https://github.com/gbham/bhamTAF-Java'
                                 }
+                        }
+                        stage('Maven Build') {
+
                         }
                 }
 }
