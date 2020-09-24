@@ -23,13 +23,8 @@ pipeline {
                                 post {
                                         always {
                                                 junit 'target/surefire-reports/**/*.xml' 
-                                        }
-                                        failure {
-                                                mail to: 'gregbanham@hotmail.com',
-                                                        subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-                                                        body: "Something is wrong with ${env.BUILD_URL}"
-                                }
-                                        }               
+                                        }                                        
+                                }               
                         }
                 }
 }
