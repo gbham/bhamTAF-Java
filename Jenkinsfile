@@ -10,9 +10,14 @@ pipeline {
                                         git credentialsId: 'github', url: 'https://github.com/gbham/bhamTAF-Java'
                                 }
                         }
-                        stage('Maven Build') {
+                        stage('Build') {
                                 steps {
-                                        bat 'mvn -Dmaven.test.failure.ignore=true install'
+                                        bat 'mvn compile'
+                                }
+                        }
+                        stage('Test') {
+                                steps {
+                                        bat 'mvn test'
                                 }
                         }
                 }
