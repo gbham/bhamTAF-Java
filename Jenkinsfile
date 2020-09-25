@@ -10,19 +10,17 @@ pipeline {
                                         bat 'mkdir Chrome'  
                                         bat 'mkdir Edge'
                                         
-                                        bat 'cd Chrome'
-                                        git credentialsId: 'github', url: 'https://github.com/gbham/bhamTAF-Java >> Chrome'
+                                        dir ('Chrome') {
+                                                git credentialsId: 'github', url: 'https://github.com/gbham/bhamTAF-Java'        
+                                        }
                                         
-                                        bat 'cd ..'
-                                        bat 'cd Edge'
-                                        git credentialsId: 'github', url: 'https://github.com/gbham/bhamTAF-Java'                                       
-                                        
+                                        bat 'dir'
                                 }
                         }
                         stage('Build') {
                                 steps {
                                         bat 'dir'                                        
-                                        bat 'echo BROWSER_TYPE=chrome >> Chrome/src/main/resources/.env'   
+                                        bat 'echo BROWSER_TYPE=chrome >> src/main/resources/.env'   
                                         bat 'echo BROWSER_TYPE=edge >> Edge/src/main/resources/.env' 
                                         
                                         bat 'cd chrome'
@@ -36,15 +34,22 @@ pipeline {
                                         
                                 }
                         }
-                        stage('Test') {
+                        stage('Chrome Test') {
                                 steps {
-                                        bat 'cd chrome'
-                                        bat 'mvn test'
+                                        bat 'echo BROWSER_TYPE=chrome >> src/main/resources/.env'   
+                                        bat 'mvn test' 
                                         
-                                        bat 'cd ..'
-                                        bat 'cd edge'
-                                        bat 'mvn test'
-                                        
+                                }
+                                post {
+                                        always {
+                                                junit 'target/surefire-reports/**/*.xml' 
+                                        }                                        
+                                }               
+                        }
+                        stage('Edge Test') {
+                                steps {
+                                        bat 'echo BROWSER_TYPE=edge >> src/main/resources/.env'   
+                                        bat 'mvn test' 
                                 }
                                 post {
                                         always {
