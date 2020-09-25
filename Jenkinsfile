@@ -35,7 +35,7 @@ pipeline {
                                 }
                                 post {
                                         always {
-                                                junit 'target/surefire-reports/**/*.xml' 
+                                                junit 'Chrome/target/surefire-reports/**/*.xml' 
                                         }                                        
                                 }               
                         }
@@ -46,7 +46,7 @@ pipeline {
                                 }
                                 post {
                                         always {
-                                                junit 'target/surefire-reports/**/*.xml' 
+                                                junit 'Edge/target/surefire-reports/**/*.xml' 
                                         }                                        
                                 }               
                         }
