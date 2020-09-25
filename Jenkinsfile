@@ -5,7 +5,7 @@ pipeline {
         }        
 
                 stages {
-                        stage('Checkout Edge') {
+                        stage('Checkout for other browser (Edge)') {
                                 steps {
                                         bat 'mkdir Edge'                                        
                                         dir ('Edge') {                                                
@@ -27,8 +27,6 @@ pipeline {
                                         
                                 }
                         }
-                        
-                        
                         stage('Chrome Test') {
                                 steps {
                                         bat 'echo BROWSER_TYPE=chrome >> Chrome/src/main/resources/.env'   
