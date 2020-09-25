@@ -11,8 +11,7 @@ pipeline {
                                         bat 'mkdir Edge'
                                         
                                         dir ('Chrome') {                                                
-                                                git credentialsId: 'github',
-                                                url: 'https://github.com/gbham/bhamTAF-Java' 
+                                                git credentialsId: 'github', url: 'https://github.com/gbham/bhamTAF-Java' 
                                         }
                                         
                                         bat 'dir'
