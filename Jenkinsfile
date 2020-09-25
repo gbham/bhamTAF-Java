@@ -13,7 +13,7 @@ pipeline {
                         stage('Build') {
                                 steps {
                                         bat 'dir'                                        
-                                        bat 'echo BROWSER_TYPE=chrome >> src/main/resources/.env'                                       
+                                        bat 'echo chrome >> src/main/resources/.env'                                       
                                         bat 'mvn clean'
                                         bat 'mvn compile'
                                 }
