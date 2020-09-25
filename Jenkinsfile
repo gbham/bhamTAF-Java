@@ -14,7 +14,7 @@ pipeline {
                                 steps {
                                         bat 'dir'
                                         bat 'cd src/main/resources'
-                                        bat 'echo "chrome" >> .env
+                                        bat 'echo "chrome" >> .env'
                                         bat 'mvn clean'
                                         bat 'mvn compile'
                                 }
