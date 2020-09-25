@@ -15,13 +15,14 @@ pipeline {
                                         bat 'dir'
                                         bat 'cd src/main/resources'
                                         bat 'echo BROWSER_TYPE=chrome >> .env'
+                                        sh  'cat .env'
                                         bat 'mvn clean'
                                         bat 'mvn compile'
                                 }
                         }
                         stage('Test') {
                                 steps {
-                                        bat 'mvn test -e'
+                                        bat 'mvn test -e -X'
                                 }
                                 post {
                                         always {
