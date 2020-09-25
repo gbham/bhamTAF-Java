@@ -7,12 +7,8 @@ pipeline {
                 stages {
                         stage('Checkout') {
                                 steps {
-                                        bat 'mkdir Chrome'  
-                                        bat 'mkdir Edge'
                                         
-                                        dir ('Chrome') {                                                
-                                                git credentialsId: 'github', url: 'https://github.com/gbham/bhamTAF-Java' 
-                                        }
+                                                                               
                                         
                                         bat 'dir'
                                 }
