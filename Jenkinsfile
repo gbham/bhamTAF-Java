@@ -8,7 +8,9 @@ pipeline {
                         stage('Checkout') {
                                 steps {
                                         
-                                                                               
+                                        bat 'dir'
+                                }
+                                steps {
                                         
                                         bat 'dir'
                                 }
