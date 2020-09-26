@@ -18,12 +18,15 @@ pipeline {
                         }
                         stage('Create .env files') {
                                 steps {
-                                        bat "echo BASE_URL=${BASE_URL} >> Chrome/src/main/resources/.env Edge/src/main/resources/.env'"
-                                        //bat "echo BASE_URL=${BASE_URL} >> Edge/src/main/resources/.env"
+                                        bat "echo BASE_URL=${BASE_URL} >> Chrome/src/main/resources/.env"                                        
                                         bat "echo SELENIUM_GRID=${SELENIUM_GRID} >> Chrome/src/main/resources/.env"
                                         bat "echo SELENIUM_HUB_URL=${SELENIUM_HUB_URL} >> Chrome/src/main/resources/.env"
                                         bat "echo BROWSER_TYPE=chrome >> Chrome/src/main/resources/.env"
                                         
+                                        bat "echo BASE_URL=${BASE_URL} >> Edge/src/main/resources/.env"                                        
+                                        bat "echo SELENIUM_GRID=${SELENIUM_GRID} >> Edge/src/main/resources/.env"
+                                        bat "echo SELENIUM_HUB_URL=${SELENIUM_HUB_URL} >> Edge/src/main/resources/.env"
+                                        bat 'echo BROWSER_TYPE=edge >> Edge/src/main/resources/.env'
                                         
                                         
                                         
@@ -46,7 +49,7 @@ pipeline {
                                 parallel {
                                         stage('Chrome Test') {
                                                 steps {
-                                                        bat 'echo BROWSER_TYPE=chrome >> Chrome/src/main/resources/.env'   
+                                                        //bat 'echo BROWSER_TYPE=chrome >> Chrome/src/main/resources/.env'   
                                                         bat 'mvn test -f Chrome/pom.xml'                                         
                                                 }
                                                 post {
@@ -57,7 +60,7 @@ pipeline {
                                         }
                                         stage('Edge Test') {
                                                 steps {
-                                                        bat 'echo BROWSER_TYPE=edge >> Edge/src/main/resources/.env'   
+                                                        //bat 'echo BROWSER_TYPE=edge >> Edge/src/main/resources/.env'   
                                                         bat 'mvn test -f Edge/pom.xml' 
                                                 }
                                                 post {
