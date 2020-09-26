@@ -51,9 +51,8 @@ pipeline {
                         }
                 }
                 post {
-                        always {
-                                
-                                mail bcc: '', body: 'testt', cc: '', subject: 'TestSub', to: 'gregbanham@hotmail.com'                                
+                        always {                                
+                                mail bcc: '', body: 'testt', cc: '', from: '', replyTo: '', subject: 'TestSub', to: 'gregbanham@hotmail.com'                                
                                 //deleteDir()
                         }
                 }
