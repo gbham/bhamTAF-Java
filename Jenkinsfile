@@ -7,7 +7,7 @@ pipeline {
                 stages {
                         stage('Clone Repository (Edge)') {
                                 steps { 
-                                        //bat 'mkdir Edge'
+                                        bat 'mkdir Edge'
                                         //bat 'Xcopy /E "Chrome" "Edge\"'
                                         //dir ('Edge') {                                                
                                         //        git credentialsId: 'github', url: 'https://github.com/gbham/bhamTAF-Java' 
