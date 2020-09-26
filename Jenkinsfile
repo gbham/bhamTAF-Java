@@ -20,37 +20,37 @@ pipeline {
                                         bat "echo BASE_URL=${BASE_URL} >> Edge/src/main/resources/.env"                                        
                                         bat "echo SELENIUM_GRID=${SELENIUM_GRID} >> Edge/src/main/resources/.env"
                                         bat "echo SELENIUM_HUB_URL=${SELENIUM_HUB_URL} >> Edge/src/main/resources/.env"
-                                        bat 'echo BROWSER_TYPE=edge >> Edge/src/main/resources/.env'
+                                        bat "echo BROWSER_TYPE=edge >> Edge/src/main/resources/.env"
                                 }
                         }  
                         stage('Build') {
                                 steps {                                        
-                                        bat 'mvn clean -f Chrome/pom.xml'
-                                        bat 'mvn compile -f Chrome/pom.xml'
+                                        bat "mvn clean -f Chrome/pom.xml"
+                                        bat "mvn compile -f Chrome/pom.xml"
                                         
-                                        bat 'mvn clean -f Edge/pom.xml'
-                                        bat 'mvn compile -f Edge/pom.xml' 
+                                        bat "mvn clean -f Edge/pom.xml"
+                                        bat "mvn compile -f Edge/pom.xml"
                                 }
                         }
                         stage('Run Tests') {        
                                 parallel {
                                         stage('Chrome Test') {
                                                 steps {                                                          
-                                                        bat 'mvn test -f Chrome/pom.xml'                                         
+                                                        bat "mvn test -f Chrome/pom.xml"                                         
                                                 }
                                                 post {
                                                         always {
-                                                                junit 'Chrome/target/surefire-reports/**/*.xml' 
+                                                                junit "Chrome/target/surefire-reports/**/*.xml" 
                                                         }
                                                 }
                                         }
                                         stage('Edge Test') {
                                                 steps {                                                           
-                                                        bat 'mvn test -f Edge/pom.xml' 
+                                                        bat "mvn test -f Edge/pom.xml" 
                                                 }
                                                 post {
                                                         always {
-                                                                junit 'Edge/target/surefire-reports/**/*.xml' 
+                                                                junit "Edge/target/surefire-reports/**/*.xml"
                                                         }                                        
                                                 }               
                                         } 
