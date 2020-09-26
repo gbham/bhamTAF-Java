@@ -53,7 +53,7 @@ pipeline {
                 post {
                         always {
                                 bat 'dir'
-                                archiveArtifacts artifacts: '\'**/Chrome/target/surefire-reports/emailable-report.html\'', followSymlinks: false
+                                archiveArtifacts artifacts: '\'Chrome/target/surefire-reports/emailable-report.html\'', followSymlinks: false
                                 //bat 'RMDIR /Q /S Edge'    
                                 //bat 'RMDIR /Q /S Chrome'
                                 //deleteDir()
