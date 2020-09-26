@@ -8,10 +8,7 @@ pipeline {
                         stage('Clone Repository (Edge)') {
                                 steps { 
                                         bat 'mkdir Edge'
-                                        bat 'Xcopy /E "Chrome" "Edge\"'
-                                        //dir ('Edge') {                                                
-                                        //        git credentialsId: 'github', url: 'https://github.com/gbham/bhamTAF-Java' 
-                                        //}
+                                        bat 'Xcopy /E "Chrome" "Edge\"'                                        
                                 }                                
                         }
                         stage('Build') {
@@ -52,8 +49,7 @@ pipeline {
                 }
                 post {
                         always {                                
-                                emailext body: 'TestBody', subject: 'TestSubject', to: 'gregbanham@hotmail.com'                                
-                                //deleteDir()
+                                deleteDir()
                         }
                 }
                 
