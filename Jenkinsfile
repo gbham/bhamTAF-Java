@@ -52,7 +52,7 @@ pipeline {
                 }
                 post {
                         always {                                
-                                mail bcc: '', body: 'testt', cc: '', from: '', replyTo: '', subject: 'TestSub', to: 'gregbanham@hotmail.com'                                
+                                emailext body: 'TestBody', subject: 'TestSubject', to: 'gregbanham@hotmail.com'                                
                                 //deleteDir()
                         }
                 }
