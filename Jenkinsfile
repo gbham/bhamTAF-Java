@@ -2,18 +2,12 @@ pipeline {
         agent any
         tools {
                 maven 'Maven'
-        }       
-        environment {
-                TEST_VAR = "1"
         }
-
                 stages {
                         stage('Clone Repository (Edge)') {
                                 steps { 
                                         bat 'mkdir Edge'
-                                        bat 'Xcopy /E "Chrome" "Edge\"'
-                                        
-                                        echo "TEST_VAR = ${TEST_VAR}"
+                                        bat 'Xcopy /E "Chrome" "Edge\"' 
                                 }                                
                         }
                         stage('Create .env files') {
@@ -27,14 +21,7 @@ pipeline {
                                         bat "echo SELENIUM_GRID=${SELENIUM_GRID} >> Edge/src/main/resources/.env"
                                         bat "echo SELENIUM_HUB_URL=${SELENIUM_HUB_URL} >> Edge/src/main/resources/.env"
                                         bat 'echo BROWSER_TYPE=edge >> Edge/src/main/resources/.env'
-                                        
-                                        
-                                        
                                 }
-                                
-                                
-                                
-                                
                         }  
                         stage('Build') {
                                 steps {                                        
@@ -48,8 +35,7 @@ pipeline {
                         stage('Run Tests') {        
                                 parallel {
                                         stage('Chrome Test') {
-                                                steps {
-                                                        //bat 'echo BROWSER_TYPE=chrome >> Chrome/src/main/resources/.env'   
+                                                steps {                                                          
                                                         bat 'mvn test -f Chrome/pom.xml'                                         
                                                 }
                                                 post {
@@ -59,8 +45,7 @@ pipeline {
                                                 }
                                         }
                                         stage('Edge Test') {
-                                                steps {
-                                                        //bat 'echo BROWSER_TYPE=edge >> Edge/src/main/resources/.env'   
+                                                steps {                                                           
                                                         bat 'mvn test -f Edge/pom.xml' 
                                                 }
                                                 post {
