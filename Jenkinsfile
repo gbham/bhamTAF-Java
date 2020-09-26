@@ -56,8 +56,8 @@ pipeline {
                 }
                 post {
                         always {
-                                bat 'RMDIR /Q /S Chrome'    
-                                bat 'RMDIR /Q /S Edge' 
+                                bat 'RMDIR /Q /S'    
+                                
                         }
                 }
                 
