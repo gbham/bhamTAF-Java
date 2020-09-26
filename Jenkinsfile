@@ -8,7 +8,9 @@ pipeline {
                         stage('Clone Repository (Edge)') {
                                 steps { 
                                         bat 'mkdir Edge'
-                                        bat 'Xcopy /E "Chrome" "Edge\"'                                        
+                                        bat 'Xcopy /E "Chrome" "Edge\"'
+                                        
+                                        bat 'env.TEST_VAR = "1.2"'
                                 }                                
                         }
                         stage('Build') {
@@ -17,7 +19,9 @@ pipeline {
                                         bat 'mvn compile -f Chrome/pom.xml'
                                         
                                         bat 'mvn clean -f Edge/pom.xml'
-                                        bat 'mvn compile -f Edge/pom.xml'                                        
+                                        bat 'mvn compile -f Edge/pom.xml' 
+                                        
+                                        bat 'echo env.TEST_VAR'
                                 }
                         }
                         stage('Run Tests') {        
