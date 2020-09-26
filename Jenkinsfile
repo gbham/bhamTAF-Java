@@ -20,7 +20,7 @@ pipeline {
                                         bat 'mvn compile -f Edge/pom.xml'                                        
                                 }
                         }
-                        stage('Run Tests') {        
+                        //stage('Run Tests') {        
                                 //parallel {
                                         stage('Chrome Test') {
                                                 steps {
@@ -45,7 +45,7 @@ pipeline {
                                                 }               
                                         } 
                                 //}
-                        }
+                        //}
                 }
                 post {
                         always {                                
