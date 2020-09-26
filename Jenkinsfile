@@ -23,31 +23,32 @@ pipeline {
                                         bat 'mvn compile -f Edge/pom.xml'                                        
                                 }
                         }
-                        parallel {
-                                stage('Chrome Test') {
-                                        steps {
-                                                bat 'echo BROWSER_TYPE=chrome >> Chrome/src/main/resources/.env'   
-                                                bat 'mvn test -f Chrome/pom.xml'                                         
-                                        }
-                                        post {
-                                                always {
-                                                        junit 'Chrome/target/surefire-reports/**/*.xml' 
+                        stage('Run Tests') {        
+                                parallel {
+                                        stage('Chrome Test') {
+                                                steps {
+                                                        bat 'echo BROWSER_TYPE=chrome >> Chrome/src/main/resources/.env'   
+                                                        bat 'mvn test -f Chrome/pom.xml'                                         
+                                                }
+                                                post {
+                                                        always {
+                                                                junit 'Chrome/target/surefire-reports/**/*.xml' 
+                                                        }
                                                 }
                                         }
+                                        stage('Edge Test') {
+                                                steps {
+                                                        bat 'echo BROWSER_TYPE=edge >> Edge/src/main/resources/.env'   
+                                                        bat 'mvn test -f Edge/pom.xml' 
+                                                }
+                                                post {
+                                                        always {
+                                                                junit 'Edge/target/surefire-reports/**/*.xml' 
+                                                        }                                        
+                                                }               
+                                        } 
                                 }
-                                stage('Edge Test') {
-                                        steps {
-                                                bat 'echo BROWSER_TYPE=edge >> Edge/src/main/resources/.env'   
-                                                bat 'mvn test -f Edge/pom.xml' 
-                                        }
-                                        post {
-                                                always {
-                                                        junit 'Edge/target/surefire-reports/**/*.xml' 
-                                                }                                        
-                                        }               
-                                } 
                         }
-                                                                       
                 }
                 post {
                         always {
