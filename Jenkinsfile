@@ -8,7 +8,7 @@ pipeline {
                         stage('Clone Repository (Edge)') {
                                 steps { 
                                         bat 'mkdir Edge'
-                                        //bat 'Xcopy /E "Chrome" "Edge\"'
+                                        bat 'Xcopy /E "Chrome" "Edge\"'
                                         //dir ('Edge') {                                                
                                         //        git credentialsId: 'github', url: 'https://github.com/gbham/bhamTAF-Java' 
                                         //}
@@ -19,8 +19,8 @@ pipeline {
                                         bat 'mvn clean -f Chrome/pom.xml'
                                         bat 'mvn compile -f Chrome/pom.xml'
                                         
-                                        //bat 'mvn clean -f Edge/pom.xml'
-                                        //bat 'mvn compile -f Edge/pom.xml'                                        
+                                        bat 'mvn clean -f Edge/pom.xml'
+                                        bat 'mvn compile -f Edge/pom.xml'                                        
                                 }
                         }
                         stage('Run Tests') {        
@@ -38,12 +38,12 @@ pipeline {
                                         }
                                         stage('Edge Test') {
                                                 steps {
-                                                        bat 'echo BROWSER_TYPE=edge >> Chrome/src/main/resources/.env'   
-                                                        bat 'mvn test -f Chrome/pom.xml' 
+                                                        bat 'echo BROWSER_TYPE=edge >> Edge/src/main/resources/.env'   
+                                                        bat 'mvn test -f Edge/pom.xml' 
                                                 }
                                                 post {
                                                         always {
-                                                                junit 'Chrome/target/surefire-reports/**/*.xml' 
+                                                                junit 'Edge/target/surefire-reports/**/*.xml' 
                                                         }                                        
                                                 }               
                                         } 
@@ -52,7 +52,7 @@ pipeline {
                 }
                 post {
                         always {
-                                //bat 'RMDIR /Q /S Edge'    
+                                bat 'RMDIR /Q /S Edge'    
                                 bat 'RMDIR /Q /S Chrome'
                         }
                 }
