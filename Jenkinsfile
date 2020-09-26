@@ -49,11 +49,12 @@ pipeline {
                                                 junit 'Edge/target/surefire-reports/**/*.xml' 
                                         }                                        
                                 }               
-                        }
-                        stage('Clean up') {
-                                steps {
-                                        bat 'RMDIR /Q /S Pipeline_Test'
-                                }
+                        }                        
+                }
+                post {
+                        always {
+                                bat 'RMDIR /Q /S Pipeline_Test'        
                         }
                 }
+                
 }
