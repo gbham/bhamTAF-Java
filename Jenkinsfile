@@ -7,10 +7,11 @@ pipeline {
                 stages {
                         stage('Checkout for other browser (Edge)') {
                                 steps {
-                                        bat 'mkdir Edge'                                        
-                                        dir ('Edge') {                                                
-                                                git credentialsId: 'github', url: 'https://github.com/gbham/bhamTAF-Java' 
-                                        }
+                                        bat 'mkdir Edge'
+                                        bat 'Xcopy /E \chrome \Edge\'
+                                        //dir ('Edge') {                                                
+                                        //        git credentialsId: 'github', url: 'https://github.com/gbham/bhamTAF-Java' 
+                                        //}
                                 }                                
                         }
                         stage('Build Chrome') {
@@ -56,7 +57,8 @@ pipeline {
                 }
                 post {
                         always {
-                                bat 'RMDIR /Q /S'    
+                                bat 'RMDIR /Q /S Edge'    
+                                bat 'RMDIR /Q /S Chrome'  
                                 
                         }
                 }
