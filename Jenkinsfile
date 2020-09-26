@@ -21,7 +21,7 @@ pipeline {
                                 }
                         }
                         stage('Run Tests') {        
-                                parallel {
+                                //parallel {
                                         stage('Chrome Test') {
                                                 steps {
                                                         bat 'echo BROWSER_TYPE=chrome >> Chrome/src/main/resources/.env'   
@@ -44,7 +44,7 @@ pipeline {
                                                         }                                        
                                                 }               
                                         } 
-                                }
+                                //}
                         }
                 }
                 post {
