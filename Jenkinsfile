@@ -8,7 +8,7 @@ pipeline {
                         stage('Checkout for other browser (Edge)') {
                                 steps {
                                         bat 'mkdir Edge'
-                                        bat 'Xcopy /E Chrome Edge\'
+                                        bat 'Xcopy /E "Chrome" "Edge\"'
                                         //dir ('Edge') {                                                
                                         //        git credentialsId: 'github', url: 'https://github.com/gbham/bhamTAF-Java' 
                                         //}
