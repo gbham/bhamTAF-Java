@@ -52,10 +52,8 @@ pipeline {
                 }
                 post {
                         always {
-                                bat 'dir'
-                                archiveArtifacts artifacts: '\'Chrome/target/surefire-reports/emailable-report.html\'', followSymlinks: false
-                                //bat 'RMDIR /Q /S Edge'    
-                                //bat 'RMDIR /Q /S Chrome'
+                                
+                                mail bcc: '', body: 'testt', cc: '', subject: 'TestSub', to: 'gregbanham@hotmail.com'                                
                                 //deleteDir()
                         }
                 }
