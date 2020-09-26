@@ -3,6 +3,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
@@ -50,6 +51,7 @@ public class BaseTest {
             case "edge":
                 EdgeOptions edgeOptions = new EdgeOptions();
                 edgeOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
+                edgeOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE);
                 Driver = new RemoteWebDriver(new URL(SELENIUM_HUB_URL), edgeOptions);
                 break;
         }
