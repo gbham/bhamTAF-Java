@@ -1,8 +1,11 @@
 pipeline {
         agent any
         tools {
-            maven 'Maven'
+                maven 'Maven'
         }       
+        environment {
+                TEST_VAR = "1"
+        }
 
                 stages {
                         stage('Clone Repository (Edge)') {
@@ -10,7 +13,7 @@ pipeline {
                                         bat 'mkdir Edge'
                                         bat 'Xcopy /E "Chrome" "Edge\"'
                                         
-                                        bat 'env.TEST_VAR = "1.2"'
+                                        bat 'echo "TEST_VAR = ${TEST_VAR}"'
                                 }                                
                         }
                         stage('Build') {
@@ -20,8 +23,6 @@ pipeline {
                                         
                                         bat 'mvn clean -f Edge/pom.xml'
                                         bat 'mvn compile -f Edge/pom.xml' 
-                                        
-                                        bat 'echo env.TEST_VAR'
                                 }
                         }
                         stage('Run Tests') {        
