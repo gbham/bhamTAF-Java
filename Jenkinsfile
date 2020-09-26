@@ -23,8 +23,8 @@ pipeline {
                                         //bat 'mvn compile -f Edge/pom.xml'                                        
                                 }
                         }
-                        stage('Run Tests') {        
-                                parallel {
+                        //stage('Run Tests') {        
+                                //parallel {
                                         stage('Chrome Test') {
                                                 steps {
                                                         bat 'echo BROWSER_TYPE=chrome >> Chrome/src/main/resources/.env'   
@@ -47,8 +47,8 @@ pipeline {
                                                         }                                        
                                                 }               
                                         } 
-                                }
-                        }
+                                //}
+                        //}
                 }
                 post {
                         always {
