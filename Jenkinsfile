@@ -50,5 +50,10 @@ pipeline {
                                         }                                        
                                 }               
                         }
+                        stage('Clean up') {
+                                steps {
+                                        bat 'RMDIR /Q /S Pipeline_Test'
+                                }
+                        }
                 }
 }
