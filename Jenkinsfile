@@ -2,11 +2,11 @@ pipeline {
         agent any
         tools {
             maven 'Maven'
-        }        
+        }       
 
                 stages {
-                        stage('Checkout for other browser (Edge)') {
-                                steps {
+                        stage('Clone Repository (Edge)') {
+                                steps { 
                                         bat 'mkdir Edge'
                                         bat 'Xcopy /E "Chrome" "Edge\"'
                                         //dir ('Edge') {                                                
@@ -14,20 +14,15 @@ pipeline {
                                         //}
                                 }                                
                         }
-                        stage('Build Chrome') {
+                        stage('Build') {
                                 steps {                                        
                                         bat 'mvn clean -f Chrome/pom.xml'
-                                        bat 'mvn compile -f Chrome/pom.xml' 
+                                        bat 'mvn compile -f Chrome/pom.xml'
                                         
-                                }
-                        }
-                        stage('Build Edge') {
-                                steps {                                         
                                         bat 'mvn clean -f Edge/pom.xml'
-                                        bat 'mvn compile -f Edge/pom.xml' 
-                                        
+                                        bat 'mvn compile -f Edge/pom.xml'                                        
                                 }
-                        }
+                        }                        
                         stage('Run Tests') {
                                 parallel {
                                         stage('Chrome Test') {
@@ -58,8 +53,7 @@ pipeline {
                 post {
                         always {
                                 bat 'RMDIR /Q /S Edge'    
-                                bat 'RMDIR /Q /S Chrome'  
-                                
+                                bat 'RMDIR /Q /S Chrome'
                         }
                 }
                 
