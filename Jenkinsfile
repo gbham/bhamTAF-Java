@@ -13,7 +13,7 @@ pipeline {
                                         bat 'mkdir Edge'
                                         bat 'Xcopy /E "Chrome" "Edge\"'
                                         
-                                        bat 'echo TEST_VAR = ${TEST_VAR}'
+                                        echo 'TEST_VAR = ${TEST_VAR}'
                                 }                                
                         }
                         stage('Build') {
