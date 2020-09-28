@@ -32,8 +32,8 @@ pipeline {
                                         bat "mvn compile -f Edge/pom.xml"
                                 }
                         }
-                        stage('Run Tests') {        
-                                parallel {
+                        //stage('Run Tests') {        
+                                //parallel {
                                         stage('Chrome Test') {
                                                 steps {                                                          
                                                         bat "mvn test -f Chrome/pom.xml"                                         
@@ -44,22 +44,23 @@ pipeline {
                                                         }
                                                 }
                                         }
-                                        stage('Edge Test') {
-                                                steps {                                                           
-                                                        bat "mvn test -f Edge/pom.xml" 
-                                                }
-                                                post {
-                                                        always {
-                                                                junit "Edge/target/surefire-reports/**/*.xml"
-                                                        }                                        
-                                                }               
-                                        } 
-                                }
-                        }
+                                        //stage('Edge Test') {
+                                        //        steps {                                                           
+                                        //                bat "mvn test -f Edge/pom.xml" 
+                                        //        }
+                                        //        post {
+                                        //                always {
+                                        //                        junit "Edge/target/surefire-reports/**/*.xml"
+                                        //                }                                        
+                                        //        }               
+                                        //} 
+                                //}
+                        //}
                 }
                 post {
                         always {                                
                                 deleteDir()
+                                //remmember to clean up docker
                         }
                 }
                 
