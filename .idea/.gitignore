@@ -3,7 +3,7 @@
 /workspace.xml
 /.env
 # Datasource local storage ignored files
-/../../../../../:\Dev\nhs\AutomationNonBDD\.idea/dataSources/
+/../../../../../:\Dev\bhamTAF-Java\.idea/dataSources/
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
