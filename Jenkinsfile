@@ -1,14 +1,14 @@
 pipeline {
-        agent { dockerfile true }
+        agent any // { dockerfile true }
         tools {
                 maven 'Maven'
         }
                 stages {
-                        //stage('Start Docker') {
-                        //        steps { 
-                        //                bat "docker-compose docker-compose.yaml up"
-                        //        }                                
-                        //}
+                        stage('Start Docker') {
+                                steps { 
+                                        bat "docker-compose docker-compose.yaml up"
+                                }                                
+                        }
                         stage('Clone Repository (Edge)') {
                                 steps { 
                                         bat "mkdir Edge"
