@@ -12,7 +12,7 @@ pipeline {
                         stage('Clone Repository (Edge)') {
                                 steps { 
                                         bat "mkdir Edge"
-                                        bat "Xcopy /E 'Chrome' 'Edge\'" 
+                                        bat "Xcopy /E "Chrome" "Edge\"" 
                                 }                                
                         }
                         stage('Create .env files') {
