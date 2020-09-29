@@ -6,8 +6,8 @@ pipeline {
                 stages {
                         stage('Start Docker') {
                                 steps {                                       
-                                        //bat "docker-compose Chrome/docker-compose.yaml up -d"
-                                        bat "dir"
+                                        bat "docker-compose -f Chrome/docker-compose.yaml up -d"
+                                        //bat "dir"
                                 }                                
                         }
                         stage('Clone Repository (Edge)') {
@@ -66,7 +66,7 @@ pipeline {
                 post {
                         always {                                
                                 deleteDir()
-                                //remmember to clean up docker
+                                bat "docker-compose -f Chrome/docker-compose.yaml down"                                
                         }
                 }
                 
