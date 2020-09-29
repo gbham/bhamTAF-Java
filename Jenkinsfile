@@ -64,9 +64,9 @@ pipeline {
                         //}
                 }
                 post {
-                        always {                                
-                                deleteDir()
-                                bat "docker-compose -f Chrome/docker-compose.yaml down"                                
+                        always { 
+                                bat "docker-compose -f Chrome/docker-compose.yaml down"
+                                deleteDir()                                                                
                         }
                 }
                 
