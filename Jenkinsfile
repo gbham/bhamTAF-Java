@@ -4,10 +4,9 @@ pipeline {
                 maven 'Maven'
         }
                 stages {
-                        stage('Start Docker') {
+                        stage('Start Docker (Selenium Grid)') {
                                 steps {                                       
-                                        bat "docker-compose -f Chrome/docker-compose.yaml up -d"
-                                        //bat "dir"
+                                        bat "docker-compose -f Chrome/docker-compose.yaml up -d"                                        
                                 }                                
                         }
                         stage('Clone Repository (Edge)') {
