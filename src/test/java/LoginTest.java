@@ -1,6 +1,9 @@
 import org.junit.Assert;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.testng.annotations.Test;
 
+//@Execution(ExecutionMode.CONCURRENT)
 public class LoginTest extends BaseTest{
 
     @Test

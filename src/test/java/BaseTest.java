@@ -44,7 +44,7 @@ public class BaseTest {
         {
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
+                //chromeOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
                 Driver = new RemoteWebDriver(new URL(SELENIUM_HUB_URL), chromeOptions);
                 break;
 

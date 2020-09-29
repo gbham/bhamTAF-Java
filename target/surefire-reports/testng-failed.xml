@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Command line suite]" verbose="0">
-  <test thread-count="5" name="Command line test(failed)" verbose="0">
+<suite thread-count="1" name="Failed suite [Surefire suite]" verbose="0">
+  <test thread-count="1" name="Surefire test(failed)" verbose="0">
     <classes>
       <class name="LoginTest">
         <methods>
           <include name="Login_Failure_IncorrectCredentials"/>
           <include name="Login_Failure_InvalidEmail"/>
+          <include name="cleanUp"/>
           <include name="SetUpDriver"/>
           <include name="Login_Failure_InvalidPassword"/>
           <include name="Login_Successful"/>
-          <include name="CleanUp"/>
         </methods>
       </class> <!-- LoginTest -->
     </classes>
-  </test> <!-- Command line test(failed) -->
-</suite> <!-- Failed suite [Command line suite] -->
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->
