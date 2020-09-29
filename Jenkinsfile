@@ -4,10 +4,15 @@ pipeline {
                 maven 'Maven'
         }
                 stages {
+                        stage('Start Docker') {
+                                steps { 
+                                        bat "docker-compose docker-compose.yaml up"
+                                }                                
+                        }
                         stage('Clone Repository (Edge)') {
                                 steps { 
-                                        bat 'mkdir Edge'
-                                        bat 'Xcopy /E "Chrome" "Edge\"' 
+                                        bat "mkdir Edge"
+                                        bat "Xcopy /E 'Chrome' 'Edge\'" 
                                 }                                
                         }
                         stage('Create .env files') {
