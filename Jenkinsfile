@@ -66,7 +66,7 @@ pipeline {
                 post {
                         always {                                
                                 deleteDir()
-                                //remmember to clean up docker
+                                bat "docker-compose -f Chrome/docker-compose.yaml down"                                
                         }
                 }
                 
