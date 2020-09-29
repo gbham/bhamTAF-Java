@@ -6,7 +6,7 @@ pipeline {
                 stages {
                         stage('Start Docker') {
                                 steps { 
-                                        bat "docker-compose docker-compose.yaml up"
+                                        bat "docker-compose Chrome/docker-compose.yaml up"
                                 }                                
                         }
                         stage('Clone Repository (Edge)') {
