@@ -24,57 +24,57 @@ public class LoginTest extends BaseTest{
         Assert.assertEquals(ExpectedPageTitle, ActualPageTitle);
     }
 
-//     @Test
-//     public void Login_Failure_InvalidEmail()
-//     {
-//         var Menu = loadSite();
+     @Test
+     public void Login_Failure_InvalidEmail()
+     {
+         var Menu = loadSite();
 
-//         var LoginPage = Menu.goToLoginPage();
+         var LoginPage = Menu.goToLoginPage();
 
-//         LoginPage.enterUsername("invalidEmail")
-//                  .enterPassword("12345")
-//                  .clickSignIn();
+         LoginPage.enterUsername("invalidEmail")
+                  .enterPassword("12345")
+                  .clickSignIn();
 
-//         var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("InvalidEmail");
+         var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("InvalidEmail");
 
-//         var ActualErrorMsg = LoginPage.GetActualErrorMsg();
+         var ActualErrorMsg = LoginPage.GetActualErrorMsg();
 
-//         Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
-//     }
+         Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
+     }
 
-//     @Test
-//     public void Login_Failure_InvalidPassword()
-//     {
-//         var Menu = loadSite();
+     @Test
+     public void Login_Failure_InvalidPassword()
+     {
+         var Menu = loadSite();
 
-//         var LoginPage = Menu.goToLoginPage();
+         var LoginPage = Menu.goToLoginPage();
 
-//         LoginPage.enterUsername("johnsmith@hotmail.com")
-//                  .enterPassword("1")
-//                  .clickSignIn();
+         LoginPage.enterUsername("johnsmith@hotmail.com")
+                  .enterPassword("1")
+                  .clickSignIn();
 
-//         var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("InvalidPassword");
+         var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("InvalidPassword");
 
-//         var ActualErrorMsg = LoginPage.GetActualErrorMsg();
+         var ActualErrorMsg = LoginPage.GetActualErrorMsg();
 
-//         Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
-//     }
+         Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
+     }
 
-//     @Test
-//     public void Login_Failure_IncorrectCredentials()
-//     {
-//         var Menu = loadSite();
+     @Test
+     public void Login_Failure_IncorrectCredentials()
+     {
+         var Menu = loadSite();
 
-//         var LoginPage = Menu.goToLoginPage();
+         var LoginPage = Menu.goToLoginPage();
 
-//         LoginPage.enterUsername("emailNotFound@hotmail.com")
-//                  .enterPassword("123456789")
-//                  .clickSignIn();
+         LoginPage.enterUsername("emailNotFound@hotmail.com")
+                  .enterPassword("123456789")
+                  .clickSignIn();
 
-//         var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
+         var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
 
-//         var ActualErrorMsg = LoginPage.GetActualErrorMsg();
+         var ActualErrorMsg = LoginPage.GetActualErrorMsg();
 
-//         Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
-//     }
+         Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
+     }
 }
