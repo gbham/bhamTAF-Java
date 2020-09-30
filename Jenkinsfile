@@ -43,8 +43,8 @@ pipeline {
                                         bat "mvn clean -f Chrome/pom.xml"
                                         bat "mvn compile -f Chrome/pom.xml"
                                         
-                                        bat "mvn clean -f Edge/pom.xml"
-                                        bat "mvn compile -f Edge/pom.xml"
+                                        //bat "mvn clean -f Edge/pom.xml"
+                                        //bat "mvn compile -f Edge/pom.xml"
                                 }
                         }
                         //stage('Run Tests') {        
