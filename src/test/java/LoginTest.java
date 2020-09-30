@@ -13,7 +13,7 @@ public class LoginTest extends BaseTest{
 
         Thread.sleep(3000);
 
-        final By TITLE_FIELD = By.xpath("//*[@id=\"events\"]/div[1]/div/div[2]/div/input[1]");
+        final By TITLE_FIELD = By.xpath("/html/body/div[2]/div[1]/div/div[2]/div/input[1]");
 //        final By DETAILS_FIELD = By.cssSelector("#events > div.col-sm-7 > div > div.panel-body > div > textarea");
 //        final By SUBMIT_BTN = By.cssSelector("#events > div.col-sm-7 > div > div.panel-body > div > button");
 
