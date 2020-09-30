@@ -18,9 +18,11 @@ pipeline {
                         stage('Start Application (Docker)') {
                                 steps {                                       
                                         bat "git clone https://github.com/dockersamples/node-bulletin-board"
-                                        bat "dir"
-                                        bat "docker build --tag node-bulletin-board/bulletin-board-app/bulletinboard:1.0 ."
-                                        bat "docker run --publish 8000:8080 --detach --name bb bulletinboard:1.0"
+                                        
+                                        dir('node-bulletin-board\\bulletin-board-app') {
+                                                bat "docker build --tag bulletinboard:1.0 ."
+                                                bat "docker run --publish 8000:8080 --detach --name bb bulletinboard:1.0"
+                                        }
                                 }                                
                         }
                         
