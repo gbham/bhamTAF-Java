@@ -7,7 +7,7 @@ public class LoginTest extends BaseTest{
 
 
     @Test
-    public void AddEvent()
+    public void AddEvent() throws InterruptedException
     {
         final By TITLE_FIELD = By.cssSelector("#events > div.col-sm-7 > div > div.panel-body > div > input:nth-child(1)");
         final By DETAILS_FIELD = By.cssSelector("#events > div.col-sm-7 > div > div.panel-body > div > textarea");
@@ -16,9 +16,11 @@ public class LoginTest extends BaseTest{
 
         var Menu = loadSite();
 
-        var title = Menu.getWebElement(TITLE_FIELD);
-        var details = Menu.getWebElement(DETAILS_FIELD);
-        var submitBtn = Menu.getWebElement(SUBMIT_BTN);
+        Thread.sleep(3000);
+
+        var title = Driver.findElement(TITLE_FIELD);
+        var details = Driver.findElement(DETAILS_FIELD);
+        var submitBtn = Driver.findElement(SUBMIT_BTN);
 
 
         title.sendKeys("TestTitle");
