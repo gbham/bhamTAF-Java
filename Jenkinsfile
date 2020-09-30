@@ -64,7 +64,7 @@ pipeline {
                 }
                 post {
                         always { 
-                                bat "docker-compose -f Chrome/docker-compose.yaml down"
+                                bat "docker-compose -f Chrome/docker-SeleniumGrid.yaml down"
                                 deleteDir()                                                                
                         }
                 }
