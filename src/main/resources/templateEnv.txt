@@ -1,6 +1,8 @@
+#Remember and rename file extension to .env
+#the .env file is created in the pipeline "Create .env files" stage
 
 #BASE_URL=http://www.automationpractice.com
 #SELENIUM_GRID=true
 #SELENIUM_HUB_URL=http://localhost:4444/wd/hub
-#BROWSER_TYPE=chrome (this is added at the pipeline build stage)
+#BROWSER_TYPE=chrome 
 
