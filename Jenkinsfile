@@ -4,17 +4,17 @@ pipeline {
                 maven 'Maven'
         }
                 stages {
-                        stage('Start Docker (Selenium Grid)') {
-                                steps {                                       
-                                        bat "docker-compose -f Chrome/docker-compose.yaml up -d"                                        
-                                }                                
-                        }
                         stage('Clone Repository (Edge)') {
                                 steps { 
                                         bat "mkdir Edge"
                                         bat 'Xcopy /E "Chrome" "Edge\"' 
                                 }                                
                         }
+                        stage('Start Selenium Grid (Docker)') {
+                                steps {                                       
+                                        bat "docker-compose -f Chrome/docker-compose.yaml up -d"                                        
+                                }                                
+                        }                        
                         stage('Create .env files') {
                                 steps {
                                         bat "echo BASE_URL=${BASE_URL} >> Chrome/src/main/resources/.env"                                        
