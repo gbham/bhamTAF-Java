@@ -4,27 +4,27 @@ pipeline {
                 maven 'Maven'
         }
                 stages {
-                        stage('Clone Repository (Edge)') {
-                                steps { 
-                                        bat "mkdir Edge"
-                                        bat 'Xcopy /E "Chrome" "Edge\"' 
-                                }                                
-                        }
-                        //stage('Start Selenium Grid (Docker)') {
-                        //        steps {                                       
-                        //                bat "docker-compose -f Chrome/docker-SeleniumGrid.yaml up -d"                                        
+                        //stage('Clone Repository (Edge)') {
+                        //        steps { 
+                        //                bat "mkdir Edge"
+                        //                bat 'Xcopy /E "Chrome" "Edge\"' 
                         //        }                                
                         //}
-                        //stage('Start Application (Docker)') {
-                        //        steps {                                       
-                        //                bat "git clone https://github.com/dockersamples/node-bulletin-board"
-                        //                
-                        //                dir('node-bulletin-board\\bulletin-board-app') {
-                        //                        bat "docker build --tag bulletinboard:1.0 ."
-                        //                        bat "docker run --publish 8000:8080 --detach --name bb bulletinboard:1.0"
-                        //                }
-                        //        }                                
-                        //}                        
+                        stage('Start Selenium Grid (Docker)') {
+                                steps {                                       
+                                        bat "docker-compose -f Chrome/docker-SeleniumGrid.yaml up -d"                                        
+                                }                                
+                        }
+                        stage('Start Application (Docker)') {
+                                steps {                                       
+                                        bat "git clone https://github.com/dockersamples/node-bulletin-board"
+                                       
+                                        dir('node-bulletin-board\\bulletin-board-app') {
+                                                bat "docker build --tag bulletinboard:1.0 ."
+                                                bat "docker run --publish 8000:8080 --detach --name bb bulletinboard:1.0"
+                                        }
+                                }                                
+                        }                        
                         stage('Create .env files') {
                                 steps {
                                         bat "echo BASE_URL=${BASE_URL} >> Chrome/src/main/resources/.env"                                        
@@ -74,10 +74,11 @@ pipeline {
                 }
                 post {
                         always { 
-                                bat "dir"
-                                //bat "docker-compose -f Chrome/docker-SeleniumGrid.yaml down"
+                                
+                                bat "docker-compose -f Chrome/docker-SeleniumGrid.yaml down"
+                                bat "docker rm --force bb"
                                 //remember and close docker container for application being tested
-                                //deleteDir()                                                                
+                                deleteDir()                                                                
                         }
                 }
                 
