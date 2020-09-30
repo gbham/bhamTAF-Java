@@ -14,10 +14,21 @@ pipeline {
                                 steps {                                       
                                         bat "docker-compose -f Chrome/docker-SeleniumGrid.yaml up -d"                                        
                                 }                                
-                        }                        
+                        }
+                        stage('Start Application (Docker)') {
+                                steps {                                       
+                                        bat "git clone https://github.com/dockersamples/node-bulletin-board"
+                                        
+                                        dir('node-bulletin-board\\bulletin-board-app') {
+                                                bat "docker build --tag bulletinboard:1.0 ."
+                                                bat "docker run --publish 8000:8080 --detach --name bb bulletinboard:1.0"
+                                        }
+                                }                                
+                        }
+                        
                         stage('Create .env files') {
                                 steps {
-                                        bat "echo BASE_URL=${BASE_URL} >> Chrome/src/main/resources/.env"                                        
+                                        bat "echo BASE_URL=http://localhost:8000/ >> Chrome/src/main/resources/.env"                                        
                                         bat "echo SELENIUM_GRID=${SELENIUM_GRID} >> Chrome/src/main/resources/.env"
                                         bat "echo SELENIUM_HUB_URL=${SELENIUM_HUB_URL} >> Chrome/src/main/resources/.env"
                                         bat "echo BROWSER_TYPE=chrome >> Chrome/src/main/resources/.env"
@@ -65,6 +76,7 @@ pipeline {
                 post {
                         always { 
                                 bat "docker-compose -f Chrome/docker-SeleniumGrid.yaml down"
+                                //remember and close docker container for application being tested
                                 deleteDir()                                                                
                         }
                 }
