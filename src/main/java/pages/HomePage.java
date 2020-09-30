@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage extends WebPage {
 
-    private final String BASE_URL = http://192.168.0.13:8000; //Dotenv.load().get("BASE_URL");
+    private final String BASE_URL = "http://192.168.0.13:8000"; //Dotenv.load().get("BASE_URL");
     private final String PAGE_TITLE = "My Store";
 
     public HomePage (WebDriver Driver)
