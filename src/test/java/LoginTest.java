@@ -10,12 +10,21 @@ public class LoginTest extends BaseTest{
     public void AddEvent()
     {
         final By TITLE_FIELD = By.cssSelector("#events > div.col-sm-7 > div > div.panel-body > div > input:nth-child(1)");
+        final By DETAILS_FIELD = By.cssSelector("#events > div.col-sm-7 > div > div.panel-body > div > textarea");
+        final By SUBMIT_BTN = By.cssSelector("#events > div.col-sm-7 > div > div.panel-body > div > button");
+
 
         var Menu = loadSite();
 
         var title = Menu.getWebElement(TITLE_FIELD);
+        var details = Menu.getWebElement(DETAILS_FIELD);
+        var submitBtn = Menu.getWebElement(SUBMIT_BTN);
+
 
         title.sendKeys("TestTitle");
+        details.sendKeys("details");
+
+        submitBtn.click();
 
 
 
