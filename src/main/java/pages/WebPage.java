@@ -40,7 +40,7 @@ public abstract class WebPage {
 
     public WebElement waitUntilElementIsReady(By selector)
     {
-        return getWait().until(ExpectedConditions.elementToBeClickable(selector));
+        return getWait().until(ExpectedConditions.visibilityOfElementLocated(selector));
     }
 
     public WebDriverWait getWait() //int timeout = 10 - no default param in java (builder pattern seems to be best alternative)
