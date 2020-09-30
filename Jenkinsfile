@@ -10,21 +10,21 @@ pipeline {
                                         bat 'Xcopy /E "Chrome" "Edge\"' 
                                 }                                
                         }
-                        stage('Start Selenium Grid (Docker)') {
-                                steps {                                       
-                                        bat "docker-compose -f Chrome/docker-SeleniumGrid.yaml up -d"                                        
-                                }                                
-                        }
-                        stage('Start Application (Docker)') {
-                                steps {                                       
-                                        bat "git clone https://github.com/dockersamples/node-bulletin-board"
-                                        
-                                        dir('node-bulletin-board\\bulletin-board-app') {
-                                                bat "docker build --tag bulletinboard:1.0 ."
-                                                bat "docker run --publish 8000:8080 --detach --name bb bulletinboard:1.0"
-                                        }
-                                }                                
-                        }                        
+                        //stage('Start Selenium Grid (Docker)') {
+                        //        steps {                                       
+                        //                bat "docker-compose -f Chrome/docker-SeleniumGrid.yaml up -d"                                        
+                        //        }                                
+                        //}
+                        //stage('Start Application (Docker)') {
+                        //        steps {                                       
+                        //                bat "git clone https://github.com/dockersamples/node-bulletin-board"
+                        //                
+                        //                dir('node-bulletin-board\\bulletin-board-app') {
+                        //                        bat "docker build --tag bulletinboard:1.0 ."
+                        //                        bat "docker run --publish 8000:8080 --detach --name bb bulletinboard:1.0"
+                        //                }
+                        //        }                                
+                        //}                        
                         stage('Create .env files') {
                                 steps {
                                         bat "echo BASE_URL=http://192.168.0.13:8000 >> Chrome/src/main/resources/.env"                                        
@@ -74,6 +74,7 @@ pipeline {
                 }
                 post {
                         always { 
+                                bat "dir"
                                 //bat "docker-compose -f Chrome/docker-SeleniumGrid.yaml down"
                                 //remember and close docker container for application being tested
                                 //deleteDir()                                                                
