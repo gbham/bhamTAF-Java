@@ -11,8 +11,10 @@ pipeline {
                         //        }                                
                         //}
                         stage('Start Selenium Grid (Docker)') {
-                                steps {                                       
-                                        bat "docker-compose -f Chrome/docker-setup.yaml up -d"                                        
+                                steps {
+                                        dir('Chrome') {
+                                                bat "docker-compose -f docker-setup.yaml up -d"
+                                        }                                                                                
                                 }                                
                         }
                         //stage('Start Application (Docker)') {
