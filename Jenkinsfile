@@ -77,7 +77,7 @@ pipeline {
                 post {
                         always { 
                                 
-                                bat "docker-compose -f Chrome/docker-SeleniumGrid.yaml down"
+                                bat "docker-compose -f Chrome/docker-setup.yaml down"
                                 //bat "docker rm --force bb"
                                 //remember and close docker container for application being tested
                                 deleteDir()                                                                
