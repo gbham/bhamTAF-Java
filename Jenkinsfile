@@ -12,7 +12,7 @@ pipeline {
                         //}
                         stage('Start Selenium Grid & Test App (Docker)') {
                                 steps {                                        
-                                        bat "docker-compose -f Chrome/docker-setup.yaml up -d"
+                                        bat "docker-compose -f Chrome/docker-env-setup.yaml up -d"
                                 }                                
                         }                                               
                         stage('Create .env files') {
