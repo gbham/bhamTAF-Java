@@ -37,3 +37,10 @@ services:
       - "9002:5900"
     links:
       - hub
+      
+    testApp:
+      image: bulletinboard:1.0
+      ports:
+        - "8000:8080"
+  
+    
