@@ -38,9 +38,9 @@ services:
     links:
       - hub
       
-    testApp:
-      image: bulletinboard:1.0
-      ports:
-        - "8000:8080"
+  testApp:
+    image: bulletinboard:1.0
+    ports:
+      - "8000:8080"
   
     
