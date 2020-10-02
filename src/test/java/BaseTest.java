@@ -41,7 +41,7 @@ public class BaseTest {
         LocalDateTime now = LocalDateTime.now();
 
 //        TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
-        TEST_DIR = "C:\\Dev\\TestResults";
+        TEST_DIR = "/bin";
 
         //Should maybe fail the test if these dir cannot be created
         File file = new File(TEST_DIR);
