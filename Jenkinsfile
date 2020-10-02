@@ -65,7 +65,7 @@ pipeline {
                 post {
                         always { 
                                 //Attempt to copy artifacts from docker container
-                                bat "docker cp a52a09a9e333:\bin\testFile.png C:/Dev "
+                                bat "docker cp a52a09a9e333:/bin/testFile.png C:/Dev "
                                 //bat "docker-compose -f Chrome/docker-env-setup.yaml down"
                                 //deleteDir()
                         }
