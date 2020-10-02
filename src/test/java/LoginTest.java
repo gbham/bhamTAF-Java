@@ -29,56 +29,7 @@ public class LoginTest extends BaseTest{
        Thread.sleep(3000);
 
     }
-
-    @Test
-    public void AddEvent2() throws InterruptedException
-    {
-
-        final By TITLE_FIELD = By.cssSelector("#events > div.col-sm-7 > div > div.panel-body > div > input:nth-child(1)");
-        final By DETAILS_FIELD = By.cssSelector("#events > div.col-sm-7 > div > div.panel-body > div > textarea");
-        final By SUBMIT_BTN = By.cssSelector("#events > div.col-sm-7 > div > div.panel-body > div > button");
-
-        var Menu = loadSite();
-
-        Thread.sleep(3000);
-
-        var title = Driver.findElement(TITLE_FIELD);
-        var details = Driver.findElement(DETAILS_FIELD);
-        var submitBtn = Driver.findElement(SUBMIT_BTN);
-
-        title.sendKeys("TestTitle");
-        details.sendKeys("details");
-
-        submitBtn.click();
-
-        Thread.sleep(3000);
-
-    }
-
-    @Test
-    public void AddEvent3() throws InterruptedException
-    {
-
-        final By TITLE_FIELD = By.cssSelector("#events > div.col-sm-7 > div > div.panel-body > div > input:nth-child(1)");
-        final By DETAILS_FIELD = By.cssSelector("#events > div.col-sm-7 > div > div.panel-body > div > textarea");
-        final By SUBMIT_BTN = By.cssSelector("#events > div.col-sm-7 > div > div.panel-body > div > button");
-
-        var Menu = loadSite();
-
-        Thread.sleep(3000);
-
-        var title = Driver.findElement(TITLE_FIELD);
-        var details = Driver.findElement(DETAILS_FIELD);
-        var submitBtn = Driver.findElement(SUBMIT_BTN);
-
-        title.sendKeys("TestTitle");
-        details.sendKeys("details");
-
-        submitBtn.click();
-
-        Thread.sleep(3000);
-
-    }
+    
 
 //    @Test
 //    public void Login_Successful()
