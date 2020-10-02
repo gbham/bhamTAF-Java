@@ -118,13 +118,13 @@ public class BaseTest {
 
 //        File destFile = new File(String.format("%1$s\\Screenshots\\%2$s.png", TEST_DIR, testResult.getName()));
 
-        File destFileTest = new File("/tmp/destTestFile.txt");
+        File destFileTest = new File("/tmp/destTestFile.png");
         //File destDir = new File("/tmp/");
 
         
         //Files.copy(srcFile.toPath(), destFileTest.toPath(), StandardCopyOption.REPLACE_EXISTING);
         //FileUtils.copyFileToDirectory(srcFileTest, destDir);
-        FileUtils.copyFile(srcFileTest, destFileTest);
+        FileUtils.copyFile(srcFile, destFileTest);
         
         
         
