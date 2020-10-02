@@ -108,10 +108,7 @@ public class BaseTest {
 
         File srcFile = TS.getScreenshotAs(OutputType.FILE);
 
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH-mm-ss");
-        LocalDateTime now = LocalDateTime.now();
-
-        File destFile = new File(String.format("%1$s\\Screenshots\\%2$s.png", TEST_DIR, testResult.getName()));
+        File destFile = new File(String.format("%1$s\\%2$s.png", TEST_DIR, testResult.getName())); //\Screenshots
 
         FileUtils.copyFile(srcFile, destFile);
     }
