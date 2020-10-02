@@ -37,13 +37,14 @@ public class BaseTest {
     @BeforeSuite
     public void createTestDirectory() throws MalformedURLException
     {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy-HH-mm-ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
 
         TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
 
         File file = new File(TEST_DIR);
-        file.mkdir();
+        file.mkdirs();
+
     }
 
     @BeforeMethod
