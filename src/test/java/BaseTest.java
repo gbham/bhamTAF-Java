@@ -122,8 +122,8 @@ public class BaseTest {
         File destDir = new File("/tmp/");
 
         //Files.copy(srcFileTest.toPath(), destFileTest.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        FileUtils.copyFileToDirectory(srcFileTest, destDir);
-        //FileUtils.copyFile(srcFile, destFileTest);
+        //FileUtils.copyFileToDirectory(srcFileTest, destDir);
+        FileUtils.copyFile(srcFileTest, destFileTest);
 
     }
 
