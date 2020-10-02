@@ -40,12 +40,13 @@ public class BaseTest {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
 
-//        TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
-        TEST_DIR = "C:\\Dev\\TestResults\\TestDir";
+        TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
 
-        File file = new File(TEST_DIR);
+        File file = new File("TEST_DIR\\Screenshots");
         file.mkdirs();
 
+        file = new File("TEST_DIR\\Logs");
+        file.mkdirs();
     }
 
     @BeforeMethod
@@ -109,9 +110,7 @@ public class BaseTest {
 
         File srcFile = TS.getScreenshotAs(OutputType.FILE);
 
-        //File destFile = new File(String.format("%1$s\\%2$s.png", TEST_DIR, testResult.getName())); //\Screenshots
-        File destFile = new File("C:\\Dev\\TestResults\\TestDir\\NewDirNeedsCreated\\testFile.png");
-
+        File destFile = new File(String.format("%1$s\\Screenshots\\%2$s.png", TEST_DIR, testResult.getName()));
 
         FileUtils.copyFile(srcFile, destFile);
     }
