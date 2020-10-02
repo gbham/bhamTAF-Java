@@ -107,8 +107,6 @@ public class BaseTest {
         TakesScreenshot TS = ((TakesScreenshot)Driver);
 
         File srcFile = TS.getScreenshotAs(OutputType.FILE);
-        
-        File destFileTest = new File("C:\\Dev\\TestResults\\Screenshots\\testfile.txt");
 
         File destFile = new File(String.format("%1$s\\Screenshots\\%2$s.png", TEST_DIR, testResult.getName()));
 
