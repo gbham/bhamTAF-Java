@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -120,7 +121,7 @@ public class BaseTest {
         File destFileTest = new File("/tmp/destTestFile.png");
         //File destDir = new File("/tmp/");
 
-        Files.copy(srcFile.toPath(), destFileTest.toPath());
+        Files.copy(srcFile.toPath(), destFileTest.toPath(), StandardCopyOption.REPLACE_EXISTING);
         //FileUtils.copyFileToDirectory(srcFile, destDir);
         //FileUtils.copyFile(srcFile, destFileTest);
 
