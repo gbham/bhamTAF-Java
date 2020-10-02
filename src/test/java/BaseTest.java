@@ -121,9 +121,12 @@ public class BaseTest {
         File destFileTest = new File("/tmp/destTestFile.png");
         //File destDir = new File("/tmp/");
 
-        //Files.copy(srcFileTest.toPath(), destFileTest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        Files.copy(srcFileTest.toPath(), destFileTest.toPath(), StandardCopyOption.REPLACE_EXISTING);
         //FileUtils.copyFileToDirectory(srcFileTest, destDir);
-        FileUtils.copyFile(srcFileTest, destFileTest);
+        //FileUtils.copyFile(srcFileTest, destFileTest);
+        
+        
+        
 
     }
 
