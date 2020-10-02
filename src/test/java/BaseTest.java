@@ -115,9 +115,11 @@ public class BaseTest {
         //srcFileTest.createNewFile();
 
 //        File destFile = new File(String.format("%1$s\\Screenshots\\%2$s.png", TEST_DIR, testResult.getName()));
-        File destFileTest = new File("/tmp/destTestFile.png"); 
+        //File destFileTest = new File("/tmp/destTestFile.png");
+        File destDir = new File("/tmp/");
 
-        FileUtils.copyFile(srcFile, destFileTest);
+        FileUtils.copyFileToDirectory(srcFile, destDir);
+        //FileUtils.copyFile(srcFile, destFileTest);
     }
 
     public Menu loadSite()
