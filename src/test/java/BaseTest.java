@@ -108,12 +108,13 @@ public class BaseTest {
     {
         TakesScreenshot TS = ((TakesScreenshot)Driver);
 
-        File srcFile = TS.getScreenshotAs(OutputType.FILE);
+        //File srcFile = TS.getScreenshotAs(OutputType.FILE);
+        File srcFileTest = new File("testFile.txt");
 
 //        File destFile = new File(String.format("%1$s\\Screenshots\\%2$s.png", TEST_DIR, testResult.getName()));
-        File destFile = new File(String.format("%1$s\\testFile.png", TEST_DIR));
+        File destFileTest = new File("/bin/testFile.txt");
 
-        FileUtils.copyFile(srcFile, destFile);
+        FileUtils.copyFile(srcFileTest, destFileTest);
     }
 
     public Menu loadSite()
