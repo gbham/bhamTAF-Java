@@ -10,11 +10,11 @@ pipeline {
                         //                bat 'Xcopy /E "Chrome" "Edge\"' 
                         //        }                                
                         //}
-                        stage('Start Selenium Grid & Test App (Docker)') {
-                                steps {                                        
-                                        bat "docker-compose -f Chrome/docker-env-setup.yaml up -d"
-                                }                                
-                        }                                               
+                        //stage('Start Selenium Grid & Test App (Docker)') {
+                        //        steps {
+                        //                bat "docker-compose -f Chrome/docker-env-setup.yaml up -d"
+                        //        }
+                        //}
                         stage('Create .env files') {
                                 steps {
                                         bat "echo BASE_URL=${BASE_URL} >> Chrome/src/main/resources/.env"                                        
@@ -66,8 +66,8 @@ pipeline {
                         always { 
                                 //Attempt to copy artifacts from docker container
                                 bat "docker cp 1d51e8be0cd50:/bin/testFile.png C:/Dev "
-                                bat "docker-compose -f Chrome/docker-env-setup.yaml down"
-                                deleteDir()                                                                
+                                //bat "docker-compose -f Chrome/docker-env-setup.yaml down"
+                                //deleteDir()
                         }
                 }
                 
