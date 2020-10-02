@@ -42,11 +42,15 @@ public class BaseTest {
 
         TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
 
+        //Should maybe fail the test if these dirs cannot be created
         File file = new File("TEST_DIR\\Screenshots");
-        file.mkdirs();
+        var result1 = file.mkdirs();
 
         file = new File("TEST_DIR\\Logs");
-        file.mkdirs();
+        var result2 = file.mkdirs();
+
+        System.out.println("result1 = " + result1);
+        System.out.println("result2 = " + result2);
     }
 
     @BeforeMethod
