@@ -106,10 +106,11 @@ public class BaseTest {
 
     public void takeScreenshot(ITestResult testResult) throws IOException
     {
-        TakesScreenshot TS = ((TakesScreenshot)Driver);
-
-        File srcFile = TS.getScreenshotAs(OutputType.FILE);
-        //File srcFileTest = new File("/dev/srcTestFile.txt");
+        //TakesScreenshot TS = ((TakesScreenshot)Driver);
+        //File srcFile = TS.getScreenshotAs(OutputType.FILE);
+        
+        
+        File srcFileTest = new File("srcTestFile.txt");
         //File srcFileTest = new File("/dev" + File.separator + "srcTestFile.txt");
         //File srcFileTest = new File("/srcTestFile.txt");
         //srcFileTest.createNewFile();
@@ -118,7 +119,7 @@ public class BaseTest {
         //File destFileTest = new File("/tmp/destTestFile.png");
         File destDir = new File("/tmp/");
 
-        FileUtils.copyFileToDirectory(srcFile, destDir);
+        FileUtils.copyFileToDirectory(srcFileTest, destDir);
         //FileUtils.copyFile(srcFile, destFileTest);
     }
 
