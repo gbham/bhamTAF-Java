@@ -1,4 +1,5 @@
-import org.openqa.selenium.Platform;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -9,8 +10,10 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
 import pages.HomePage;
 import pages.Menu;
-import org.openqa.selenium.WebDriver;
 import io.github.cdimascio.dotenv.Dotenv;
+
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -36,7 +39,11 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public void cleanUp() { Driver.quit(); }
+    public void cleanUp() throws IOException
+    {
+        this.takeScreenshot();
+        Driver.quit();
+    }
 
     private WebDriver getRemoteDriver() throws MalformedURLException
     {
@@ -72,6 +79,19 @@ public class BaseTest {
         }
         return Driver;
     }
+
+    public void takeScreenshot() throws IOException
+    {
+        TakesScreenshot TS = ((TakesScreenshot)Driver);
+
+        File srcFile = TS.getScreenshotAs(OutputType.FILE);
+        File destFile = new File("C:\\Dev\\Screenshots");
+
+        FileUtils.copyFile(srcFile, destFile);
+
+    }
+
+
 
     public Menu loadSite()
     {

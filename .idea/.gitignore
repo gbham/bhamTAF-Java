@@ -1,7 +1,7 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-/.env
+src/main/resources/.env
 # Datasource local storage ignored files
 /../../../../../:\Dev\bhamTAF-Java\.idea/dataSources/
 /dataSources.local.xml
