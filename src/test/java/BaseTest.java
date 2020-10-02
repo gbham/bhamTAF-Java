@@ -110,7 +110,7 @@ public class BaseTest {
         File srcFile = TS.getScreenshotAs(OutputType.FILE);
 
         //File destFile = new File(String.format("%1$s\\%2$s.png", TEST_DIR, testResult.getName())); //\Screenshots
-        File destFile = new File("C:\\Dev\\TestResults\\TestDir\\testFile.png");
+        File destFile = new File("C:\\Dev\\TestResults\\TestDir\\NewDirNeedsCreated\\testFile.png");
 
 
         FileUtils.copyFile(srcFile, destFile);
