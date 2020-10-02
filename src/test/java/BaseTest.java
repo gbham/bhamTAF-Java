@@ -115,7 +115,7 @@ public class BaseTest {
         //srcFileTest.createNewFile();
 
 //        File destFile = new File(String.format("%1$s\\Screenshots\\%2$s.png", TEST_DIR, testResult.getName()));
-        File destFileTest = new File("random/destTestFile.txt"); 
+        File destFileTest = new File("tmp/destTestFile.png"); 
 
         FileUtils.copyFile(srcFile, destFileTest);
     }
