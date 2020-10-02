@@ -113,7 +113,7 @@ public class BaseTest {
         File srcFileTest = new File("srcTestFile.txt");
         //File srcFileTest = new File("/dev" + File.separator + "srcTestFile.txt");
         //File srcFileTest = new File("/srcTestFile.txt");
-        //srcFileTest.createNewFile();
+        srcFileTest.createNewFile();
 
 //        File destFile = new File(String.format("%1$s\\Screenshots\\%2$s.png", TEST_DIR, testResult.getName()));
         //File destFileTest = new File("/tmp/destTestFile.png");
