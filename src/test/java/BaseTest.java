@@ -40,17 +40,13 @@ public class BaseTest {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
 
-        TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
+//        TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
+        TEST_DIR = "C:\\Dev\\TestResults";
 
-        //Should maybe fail the test if these dirs cannot be created
-        File file = new File("TEST_DIR\\Screenshots");
-        var result1 = file.mkdirs();
+        //Should maybe fail the test if these dir cannot be created
+        File file = new File(TEST_DIR);
+        file.mkdirs();
 
-        file = new File("TEST_DIR\\Logs");
-        var result2 = file.mkdirs();
-
-        System.out.println("result1 = " + result1);
-        System.out.println("result2 = " + result2);
     }
 
     @BeforeMethod
@@ -114,7 +110,8 @@ public class BaseTest {
 
         File srcFile = TS.getScreenshotAs(OutputType.FILE);
 
-        File destFile = new File(String.format("%1$s\\Screenshots\\%2$s.png", TEST_DIR, testResult.getName()));
+//        File destFile = new File(String.format("%1$s\\Screenshots\\%2$s.png", TEST_DIR, testResult.getName()));
+        File destFile = new File(String.format("%1$s\\testFile.png", TEST_DIR));
 
         FileUtils.copyFile(srcFile, destFile);
     }
