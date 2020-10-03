@@ -1,16 +1,16 @@
 package pages;
 
+import factory.DriverFactory;
 import io.github.cdimascio.dotenv.Dotenv;
-import org.openqa.selenium.WebDriver;
 
 public class HomePage extends WebPage {
 
     private final String BASE_URL = Dotenv.load().get("BASE_URL");
     private final String PAGE_TITLE = "My Store";
 
-    public HomePage (WebDriver Driver)
+    public HomePage ()
     {
-        super(Driver);
+        super();
     }
 
     public String getExpectedPageTitle()
@@ -20,6 +20,6 @@ public class HomePage extends WebPage {
 
     public void loadSite()
     {
-        Driver.get(BASE_URL);
+        DriverFactory.getInstance().getDriver().get(BASE_URL);
     }
 }

@@ -1,14 +1,14 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
+import factory.DriverFactory;
 
 public class MyAccountPage extends WebPage{
 
     private final String PAGE_TITLE = "My account - My Store";
 
-    public MyAccountPage (WebDriver Driver)
+    public MyAccountPage ()
     {
-        super(Driver);
+        super();
     }
 
     public String getExpectedPageTitle()
@@ -16,4 +16,8 @@ public class MyAccountPage extends WebPage{
         return PAGE_TITLE;
     }
 
+    public String getActualPageTitle()
+    {
+        return DriverFactory.getInstance().getDriver().getTitle();
+    }
 }

@@ -24,12 +24,10 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0-M4</version>
                     <configuration>
-                        <properties>
-                            <configurationParameters>
-                                junit.jupiter.execution.parallel.enabled = true
-                                junit.jupiter.execution.parallel.mode.default = concurrent
-                            </configurationParameters>
-                        </properties>
+                        <parallel>methods</parallel>
+                        <threadCount>2</threadCount>
+                        <forkCount>2</forkCount>
+                        <parallelTestsTimeoutForcedInSeconds>35</parallelTestsTimeoutForcedInSeconds>
                     </configuration>
                 </plugin>
             </plugins>

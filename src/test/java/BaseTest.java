@@ -1,117 +1,87 @@
 import io.github.cdimascio.dotenv.Dotenv;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.remote.BrowserType;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import factory.DriverFactory;
 import pages.HomePage;
 import pages.Menu;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class BaseTest {
 
-    protected WebDriver Driver;
     //protected String TEST_DIR;
 
-    protected String BROWSER_TYPE = Dotenv.load().get("BROWSER_TYPE");
-    protected String SELENIUM_GRID = Dotenv.load().get("SELENIUM_GRID");
-    protected String SELENIUM_HUB_URL = Dotenv.load().get("SELENIUM_HUB_URL");
-
-    //**Changes made in here are not persisting when I run the tests in the Jenkins pipeline. Cannot resolve "TEST_DIR" inside takeScreenshot() when running in the pipeline
+    //**Changes made in here are not persisting when I run the tests in the Jenkins pipeline. Cannot resolve "TEST_DIR" inside takeScreenshot().
+    //Just going to save files in working directory and archive them using Jenkinsfile for this now
     @BeforeSuite
     public void createTestDirectory() throws MalformedURLException
     {
 //        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH-mm-ss");
 //        LocalDateTime now = LocalDateTime.now();
 ////
-//        TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
+//        TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));//
 //
-//
-//        //Should maybe fail the test if these dir cannot be created
 //        File file = new File(TEST_DIR);
 //        file.mkdirs();
 
     }
 
-
-
-    @BeforeMethod
-    public void setUpDriver() throws MalformedURLException
-    {
-        if(SELENIUM_GRID.equals("true"))
-        {
-            Driver = getRemoteDriver();
-        }
-        else
-        {
-            Driver = getDriver();
-        }
-    }
+//    @BeforeMethod
+//    public void setUpDriver() throws MalformedURLException
+//    {
+//        if(SELENIUM_GRID.equals("true"))
+//        {
+//            //this.Driver = getRemoteDriver();
+//        }
+//        else
+//        {
+//
+//            //this.Driver = getLocalDriver();
+//        }
+//    }
 
     @AfterMethod
     public void cleanUp(ITestResult testResult) throws IOException
     {
-        this.takeScreenshot(testResult);
-        Driver.quit();
+//        if(!testResult.isSuccess())
+//        {
+//            this.takeScreenshot(testResult);
+//        }
+//
+
+
+        DriverFactory.getInstance().removeDriver();
+
     }
 
-    private WebDriver getRemoteDriver() throws MalformedURLException
-    {
-        switch(BROWSER_TYPE)
-        {
-            case "chrome":
-                ChromeOptions chromeOptions = new ChromeOptions();
-                //chromeOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
-                Driver = new RemoteWebDriver(new URL(SELENIUM_HUB_URL), chromeOptions);
-                break;
 
-            case "edge":
-                EdgeOptions edgeOptions = new EdgeOptions();
-                edgeOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
-                edgeOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE);
-                Driver = new RemoteWebDriver(new URL(SELENIUM_HUB_URL), edgeOptions);
-                break;
-        }
-        return Driver;
+
+    private WebDriver getLocalDriver() {
+
+//        switch (BROWSER_TYPE) {
+//            case "chrome":
+            var driver = new ChromeDriver();
+//                break;
+//
+//            case "edge":
+//                driver = new EdgeDriver();
+//                break;
+//        }
+
+        return driver;
     }
 
-    private WebDriver getDriver()
-    {
-        switch(BROWSER_TYPE)
-        {
-            case "chrome":
-                Driver = new ChromeDriver();
-                break;
-
-            case "edge":
-                Driver = new EdgeDriver();
-                break;
-        }
-        return Driver;
-    }
-
+    //need separate local and remote versions of this function
     public void takeScreenshot(ITestResult testResult) throws IOException
     {
-        TakesScreenshot TS = ((TakesScreenshot)Driver);
+        TakesScreenshot TS = ((TakesScreenshot)DriverFactory.getInstance().getDriver());
         File srcFile = TS.getScreenshotAs(OutputType.FILE);
 
         File destFile = new File(String.format("TestResults\\Screenshots\\%1$s.png", testResult.getName()));
@@ -121,9 +91,9 @@ public class BaseTest {
 
     public Menu loadSite()
     {
-        var HomePage = new HomePage(Driver);
+        var HomePage = new HomePage(); //Driver
         HomePage.loadSite();
 
-        return new Menu(Driver);
+        return new Menu(); //DriverFactory.getInstance().getDriver()
     }
 }

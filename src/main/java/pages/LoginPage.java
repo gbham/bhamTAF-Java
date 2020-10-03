@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 import java.util.Map;
 
@@ -19,9 +18,9 @@ public class LoginPage extends WebPage {
                                                         "InvalidPassword",      "Invalid password.",
                                                         "IncorrectCredentials", "Authentication failed.");
 
-    public LoginPage (WebDriver Driver)
+    public LoginPage ()
     {
-        super(Driver);
+        super();
     }
 
     public String GetExpectedPageTitle() { return PAGE_TITLE; }
@@ -51,7 +50,7 @@ public class LoginPage extends WebPage {
 //        {
 //            case "SignIn":
                 clickElement(SIGN_IN_BTN);
-                return new MyAccountPage(Driver);
+                return new MyAccountPage();
 //            case "CreateAccount":
 //              ClickElement(CREATE_ACCOUNT_BTN);
 //              break;

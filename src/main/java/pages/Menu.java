@@ -1,21 +1,20 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class Menu extends WebPage {
 
     private final By LOGIN_BTN = By.className("login");
 
-    public Menu (WebDriver Driver)
+    public Menu()
     {
-        super(Driver);
+        super();
     }
 
     public LoginPage goToLoginPage()
     {
         clickElement(LOGIN_BTN);
 
-        return new LoginPage(Driver);
+        return new LoginPage();
     }
 }
