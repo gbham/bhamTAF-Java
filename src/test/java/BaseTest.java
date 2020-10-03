@@ -30,7 +30,7 @@ import java.time.format.DateTimeFormatter;
 public class BaseTest {
 
     protected WebDriver Driver;
-    protected String TEST_DIR = "C:\\Dev\\TestResults\\";
+    protected String TEST_DIR;
 
     protected String BROWSER_TYPE = Dotenv.load().get("BROWSER_TYPE");
     protected String SELENIUM_GRID = Dotenv.load().get("SELENIUM_GRID");
@@ -39,10 +39,10 @@ public class BaseTest {
     @BeforeSuite
     public void createTestDirectory() throws MalformedURLException
     {
-//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH-mm-ss");
-//        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH-mm-ss");
+        LocalDateTime now = LocalDateTime.now();
 //
-//        TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
+        TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
 
         //Should maybe fail the test if these dir cannot be created
         File file = new File(TEST_DIR);
@@ -66,6 +66,8 @@ public class BaseTest {
     @AfterMethod
     public void cleanUp(ITestResult testResult) throws IOException
     {
+        System.out.println("TEST_DIR = " + TEST_DIR);
+
         this.takeScreenshot(testResult);
         Driver.quit();
     }
