@@ -36,7 +36,7 @@ public class BaseTest {
     protected String SELENIUM_GRID = Dotenv.load().get("SELENIUM_GRID");
     protected String SELENIUM_HUB_URL = Dotenv.load().get("SELENIUM_HUB_URL");
 
-    //**Changes made in here are not persisting when I run the tests in the Jenkins pipeline. Cannot resolve "TEST_DIR" inside takeScreenshot()
+    //**Changes made in here are not persisting when I run the tests in the Jenkins pipeline. Cannot resolve "TEST_DIR" inside takeScreenshot() when running in the pipeline
     @BeforeSuite
     public void createTestDirectory() throws MalformedURLException
     {
@@ -114,35 +114,9 @@ public class BaseTest {
         TakesScreenshot TS = ((TakesScreenshot)Driver);
         File srcFile = TS.getScreenshotAs(OutputType.FILE);
 
-        //File srcFileTest = new File("srcTestFile.txt");
-        //File srcFileTest = new File("/dev" + File.separator + "srcTestFile.txt");
-        //File srcFileTest = new File("/tmp/srcTestFile1231d2235");
-        //var result = srcFileTest.createNewFile();
-        //System.out.println("result = " + result);
-
-        //var filepath = srcFileTest.getAbsolutePath();
-        //System.out.println("filepath = " + filepath);
-
-
-
-
         File destFile = new File(String.format("TestResults\\Screenshots\\%1$s.png", testResult.getName()));
 
-        //File destFileTest = new File("C:\\Dev\\Screenshots\\TestName");
-        //File destDir = new File("/tmp/");
-
-
-
-
-
-
-        //Files.copy(srcFile.toPath(), destFileTest.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        //FileUtils.copyFileToDirectory(srcFileTest, destDir);
         FileUtils.copyFile(srcFile, destFile);
-        
-        
-        
-
     }
 
     public Menu loadSite()
