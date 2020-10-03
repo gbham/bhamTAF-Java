@@ -32,23 +32,27 @@ public class BaseTest {
     protected WebDriver Driver;
     protected String TEST_DIR;
 
+    protected String getTestDir() {
+        return TEST_DIR;
+    }
+
+    public void setTestDir(String NEW_TEST_DIR) {
+        this.TEST_DIR = NEW_TEST_DIR;
+    }
+
     protected String BROWSER_TYPE = Dotenv.load().get("BROWSER_TYPE");
     protected String SELENIUM_GRID = Dotenv.load().get("SELENIUM_GRID");
     protected String SELENIUM_HUB_URL = Dotenv.load().get("SELENIUM_HUB_URL");
 
     @BeforeSuite
-    public void setUp() throws MalformedURLException
-    {
-        createTestDirectory();
-    }
-    
-
     public void createTestDirectory() throws MalformedURLException
     {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
 //
         TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
+
+        setTestDir(TEST_DIR);
 
         //Should maybe fail the test if these dir cannot be created
         File file = new File(TEST_DIR);
@@ -74,8 +78,6 @@ public class BaseTest {
     @AfterMethod
     public void cleanUp(ITestResult testResult) throws IOException
     {
-        System.out.println("TEST_DIR = " + TEST_DIR);
-
         this.takeScreenshot(testResult);
         Driver.quit();
     }
