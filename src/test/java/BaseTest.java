@@ -30,33 +30,25 @@ import java.time.format.DateTimeFormatter;
 public class BaseTest {
 
     protected WebDriver Driver;
-    public String TEST_DIR;
-
-    public String getTestDir() {
-        return TEST_DIR;
-    }
-
-    public void setTestDir(String NEW_TEST_DIR) {
-        this.TEST_DIR = NEW_TEST_DIR;
-    }
+    //protected String TEST_DIR;
 
     protected String BROWSER_TYPE = Dotenv.load().get("BROWSER_TYPE");
     protected String SELENIUM_GRID = Dotenv.load().get("SELENIUM_GRID");
     protected String SELENIUM_HUB_URL = Dotenv.load().get("SELENIUM_HUB_URL");
 
+    //**Changes made in here are not persisting when I run the tests in the Jenkins pipeline. Cannot resolve "TEST_DIR" inside takeScreenshot()
     @BeforeSuite
     public void createTestDirectory() throws MalformedURLException
     {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH-mm-ss");
-        LocalDateTime now = LocalDateTime.now();
+//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH-mm-ss");
+//        LocalDateTime now = LocalDateTime.now();
+////
+//        TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
 //
-        TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
-
-        setTestDir(TEST_DIR);
-
-        //Should maybe fail the test if these dir cannot be created
-        File file = new File(TEST_DIR);
-        file.mkdirs();
+//
+//        //Should maybe fail the test if these dir cannot be created
+//        File file = new File(TEST_DIR);
+//        file.mkdirs();
 
     }
 
@@ -131,11 +123,10 @@ public class BaseTest {
         //var filepath = srcFileTest.getAbsolutePath();
         //System.out.println("filepath = " + filepath);
 
-        var testTest = getTestDir();
 
-        System.out.println("testTest = " + testTest);
 
-        File destFile = new File(String.format("%1$s\\Screenshots\\%2$s.png", TEST_DIR, testResult.getName()));
+
+        File destFile = new File(String.format("TestResults\\Screenshots\\%2$s.png", testResult.getName()));
 
         //File destFileTest = new File("C:\\Dev\\Screenshots\\TestName");
         //File destDir = new File("/tmp/");
