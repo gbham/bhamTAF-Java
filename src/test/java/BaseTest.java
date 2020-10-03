@@ -42,8 +42,8 @@ public class BaseTest {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
 
-//        TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
-        TEST_DIR = "/bin";
+        TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
+        //TEST_DIR = "/bin";
 
         //Should maybe fail the test if these dir cannot be created
         File file = new File(TEST_DIR);
@@ -113,18 +113,27 @@ public class BaseTest {
 
         //File srcFileTest = new File("srcTestFile.txt");
         //File srcFileTest = new File("/dev" + File.separator + "srcTestFile.txt");
-        File srcFileTest = new File("srcTestFile.txt");
-        srcFileTest.createNewFile();
+        //File srcFileTest = new File("/tmp/srcTestFile1231d2235");
+        //var result = srcFileTest.createNewFile();
+        //System.out.println("result = " + result);
 
-//        File destFile = new File(String.format("%1$s\\Screenshots\\%2$s.png", TEST_DIR, testResult.getName()));
+        //var filepath = srcFileTest.getAbsolutePath();
+        //System.out.println("filepath = " + filepath);
 
-        File destFileTest = new File("/tmp/destTestFile.png");
+
+        File destFile = new File(String.format("%1$s\\Screenshots\\%2$s.png", TEST_DIR, testResult.getName()));
+
+        //File destFileTest = new File("C:\\Dev\\Screenshots\\TestName");
         //File destDir = new File("/tmp/");
 
-        
+
+
+
+
+
         //Files.copy(srcFile.toPath(), destFileTest.toPath(), StandardCopyOption.REPLACE_EXISTING);
         //FileUtils.copyFileToDirectory(srcFileTest, destDir);
-        FileUtils.copyFile(srcFile, destFileTest);
+        FileUtils.copyFile(srcFile, destFile);
         
         
         
