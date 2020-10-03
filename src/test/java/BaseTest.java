@@ -55,27 +55,7 @@ public class BaseTest {
 //            this.takeScreenshot(testResult);
 //        }
 //
-
-
         DriverFactory.getInstance().removeDriver();
-
-    }
-
-
-
-    private WebDriver getLocalDriver() {
-
-//        switch (BROWSER_TYPE) {
-//            case "chrome":
-            var driver = new ChromeDriver();
-//                break;
-//
-//            case "edge":
-//                driver = new EdgeDriver();
-//                break;
-//        }
-
-        return driver;
     }
 
     //need separate local and remote versions of this function
