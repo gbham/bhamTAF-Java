@@ -37,6 +37,12 @@ public class BaseTest {
     protected String SELENIUM_HUB_URL = Dotenv.load().get("SELENIUM_HUB_URL");
 
     @BeforeSuite
+    public void setUp() throws MalformedURLException
+    {
+        createTestDirectory();
+    }
+    
+
     public void createTestDirectory() throws MalformedURLException
     {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH-mm-ss");
@@ -49,6 +55,8 @@ public class BaseTest {
         file.mkdirs();
 
     }
+
+
 
     @BeforeMethod
     public void setUpDriver() throws MalformedURLException
