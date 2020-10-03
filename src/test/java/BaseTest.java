@@ -30,9 +30,9 @@ import java.time.format.DateTimeFormatter;
 public class BaseTest {
 
     protected WebDriver Driver;
-    protected String TEST_DIR;
+    public String TEST_DIR;
 
-    protected String getTestDir() {
+    public String getTestDir() {
         return TEST_DIR;
     }
 
