@@ -131,9 +131,9 @@ public class BaseTest {
         //var filepath = srcFileTest.getAbsolutePath();
         //System.out.println("filepath = " + filepath);
 
-        TEST_DIR = getTestDir();
+        var testTest = getTestDir();
 
-        System.out.println("TEST_DIR = " + TEST_DIR);
+        System.out.println("testTest = " + testTest);
 
         File destFile = new File(String.format("%1$s\\Screenshots\\%2$s.png", TEST_DIR, testResult.getName()));
 
