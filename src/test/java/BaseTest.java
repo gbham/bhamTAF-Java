@@ -126,7 +126,7 @@ public class BaseTest {
 
 
 
-        File destFile = new File(String.format("TestResults\\Screenshots\\%2$s.png", testResult.getName()));
+        File destFile = new File(String.format("TestResults\\Screenshots\\%1$s.png", testResult.getName()));
 
         //File destFileTest = new File("C:\\Dev\\Screenshots\\TestName");
         //File destDir = new File("/tmp/");
