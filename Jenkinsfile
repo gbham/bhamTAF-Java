@@ -65,7 +65,7 @@ pipeline {
                 post {
                         always { 
                                 bat "dir"
-                                archiveArtifacts artifacts: 'chrome/TestResults/**/*.*'
+                                archiveArtifacts artifacts: 'Chrome/TestResults/**/*.*'
 
                                 //bat "docker-compose -f Chrome/docker-env-setup.yaml down"
                                 //deleteDir()
