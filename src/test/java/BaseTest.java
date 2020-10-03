@@ -43,7 +43,6 @@ public class BaseTest {
         LocalDateTime now = LocalDateTime.now();
 
         TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));
-        //TEST_DIR = "/bin";
 
         //Should maybe fail the test if these dir cannot be created
         File file = new File(TEST_DIR);
@@ -120,6 +119,7 @@ public class BaseTest {
         //var filepath = srcFileTest.getAbsolutePath();
         //System.out.println("filepath = " + filepath);
 
+        System.out.println("TEST_DIR = " + TEST_DIR);
 
         File destFile = new File(String.format("%1$s\\Screenshots\\%2$s.png", TEST_DIR, testResult.getName()));
 
