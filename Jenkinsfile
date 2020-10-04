@@ -37,30 +37,51 @@ pipeline {
                                         //bat "mvn compile -f Edge/pom.xml"
                                 }
                         }
-                        //stage('Run Tests') {        
-                                //parallel {
-                                        stage('Chrome Test') {
-                                                steps {                                                          
-                                                        bat "mvn test -f Chrome/pom.xml"                                         
+                        stage('Run Parallel Tests') {
+                                parallel {
+                                        stage('Chrome Parallel Tests') {
+                                                steps {
+                                                        bat "mvn test -f Chrome/pom.xml -D threadCount=4 "
                                                 }
                                                 post {
                                                         always {
-                                                                junit "Chrome/target/surefire-reports/**/*.xml" 
+                                                                junit "Chrome/target/surefire-reports/**/*.xml"
                                                         }
                                                 }
                                         }
-                                        //stage('Edge Test') {
-                                        //        steps {                                                           
-                                        //                bat "mvn test -f Edge/pom.xml" 
-                                        //        }
-                                        //        post {
-                                        //                always {
-                                        //                        junit "Edge/target/surefire-reports/**/*.xml"
-                                        //                }                                        
-                                        //        }               
-                                        //} 
-                                //}
+                                        stage('Edge Parallel Tests') {
+                                                steps {
+                                                        bat "mvn test -f Edge/pom.xml -D threadCount=4 "
+                                                }
+                                                post {
+                                                        always {
+                                                                junit "Edge/target/surefire-reports/**/*.xml"
+                                                        }
+                                                }
+                                        }
+                                }
+                        }
+                        //stage('Chrome Single Tests') {
+                        //        steps {
+                        //                bat "mvn test -f Chrome/pom.xml"
+                        //        }
+                        //        post {
+                        //                always {
+                        //                        junit "Chrome/target/surefire-reports/**/*.xml"
+                        //                }
+                        //        }
                         //}
+                        //stage('Edge Single Tests') {
+                        //        steps {
+                        //                bat "mvn test -f Edge/pom.xml"
+                        //        }
+                        //        post {
+                        //                always {
+                        //                        junit "Edge/target/surefire-reports/**/*.xml"
+                        //                }
+                        //        }
+                        //}
+
                 }
                 post {
                         always {
