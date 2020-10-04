@@ -48,10 +48,10 @@ public class BaseTest {
     @AfterMethod
     public void cleanUp(ITestResult testResult) throws IOException
     {
-//        if(!testResult.isSuccess())
-//        {
-//            this.takeScreenshot(testResult);
-//        }
+        if(!testResult.isSuccess())
+        {
+            this.takeScreenshot(testResult);
+        }
 
         DriverFactory.getInstance().removeDriver();
     }
