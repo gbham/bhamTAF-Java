@@ -23,13 +23,11 @@ public class BaseTest {
     @BeforeSuite
     public void createTestDirectory() throws MalformedURLException
     {
-//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH-mm-ss");
-//        LocalDateTime now = LocalDateTime.now();
-////
-//        TEST_DIR = String.format("C:\\Dev\\TestResults\\%s", dtf.format(now));//
-//
-//        File file = new File(TEST_DIR);
-//        file.mkdirs();
+        File dir1 = new File("TestResults\\Screenshots");
+        File dir2 = new File("TestResults\\Logs");
+
+        dir1.mkdirs();
+        dir2.mkdirs();
 
     }
 
@@ -54,7 +52,7 @@ public class BaseTest {
 //        {
 //            this.takeScreenshot(testResult);
 //        }
-//
+
         DriverFactory.getInstance().removeDriver();
     }
 
@@ -74,6 +72,6 @@ public class BaseTest {
         var HomePage = new HomePage(); //Driver
         HomePage.loadSite();
 
-        return new Menu(); //DriverFactory.getInstance().getDriver()
+        return new Menu();
     }
 }
