@@ -85,6 +85,7 @@ pipeline {
                 }
                 post {
                         always {
+                                bat "dir"
                                 archiveArtifacts artifacts: "Chrome/TestResults/**/*.*"
                                 archiveArtifacts artifacts: "Chrome/target/surefire-reports/**/*.xml"
                                 //archiveArtifacts artifacts: 'Edge/TestResults/**/*.*'
