@@ -1,6 +1,6 @@
 package pages;
 
-import factory.DriverFactory;
+import handler.DriverFactory;
 
 public class MyAccountPage extends WebPage{
 

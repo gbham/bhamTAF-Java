@@ -1,4 +1,4 @@
-package factory;
+package handler;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import org.openqa.selenium.WebDriver;
@@ -14,10 +14,6 @@ public class DriverFactory
     protected String BROWSER_TYPE = Dotenv.load().get("BROWSER_TYPE");
     protected String SELENIUM_GRID = Dotenv.load().get("SELENIUM_GRID");
     protected String SELENIUM_HUB_URL = Dotenv.load().get("SELENIUM_HUB_URL");
-
-    private DriverFactory()
-    {
-    }
 
     private static DriverFactory instance = new DriverFactory();
 

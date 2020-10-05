@@ -1,7 +1,9 @@
+import handler.TestMethodCapture;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-
+@Listeners(TestMethodCapture.class)
 public class LoginTest extends BaseTest{
 
 
@@ -30,6 +32,8 @@ public class LoginTest extends BaseTest{
 //
 //    }
 //
+
+
 
 
     @Test
@@ -85,130 +89,144 @@ public class LoginTest extends BaseTest{
 
          Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
      }
+//
+//     @Test
+//     public void Login_Failure_IncorrectCre2dentials()
+//     {
+//         LOG().info("testDebugFromClass");
+//
+//         var Menu = loadSite();
+//
+//         var LoginPage = Menu.goToLoginPage();
+//
+//         LoginPage.enterUsername("emailNotFound@hotmail.com")
+//                  .enterPassword("123456789")
+//                  .clickSignIn();
+//
+//         var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
+//
+//         var ActualErrorMsg = LoginPage.GetActualErrorMsg();
+//
+//         Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
+//     }
 
-     @Test
-     public void Login_Failure_IncorrectCre2dentials()
-     {
-         var Menu = loadSite();
-
-         var LoginPage = Menu.goToLoginPage();
-
-         LoginPage.enterUsername("emailNotFound@hotmail.com")
-                  .enterPassword("123456789")
-                  .clickSignIn();
-
-         var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
-
-         var ActualErrorMsg = LoginPage.GetActualErrorMsg();
-
-         Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
-     }
-
-    @Test
-    public void Login_Failure_IncorrectCred3entials()
-    {
-        var Menu = loadSite();
-
-        var LoginPage = Menu.goToLoginPage();
-
-        LoginPage.enterUsername("emailNotFound@hotmail.com")
-                .enterPassword("123456789")
-                .clickSignIn();
-
-        var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
-
-        var ActualErrorMsg = LoginPage.GetActualErrorMsg();
-
-        Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
-    }
-
-    @Test
-    public void Login_Failure_IncorrectCrede4ntials()
-    {
-        var Menu = loadSite();
-
-        var LoginPage = Menu.goToLoginPage();
-
-        LoginPage.enterUsername("emailNotFound@hotmail.com")
-                .enterPassword("123456789")
-                .clickSignIn();
-
-        var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
-
-        var ActualErrorMsg = LoginPage.GetActualErrorMsg();
-
-        Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
-    }
-
-    @Test
-    public void Login_Failure_IncorrectCreden5tials()
-    {
-        var Menu = loadSite();
-
-        var LoginPage = Menu.goToLoginPage();
-
-        LoginPage.enterUsername("emailNotFound@hotmail.com")
-                .enterPassword("123456789")
-                .clickSignIn();
-
-        var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
-
-        var ActualErrorMsg = LoginPage.GetActualErrorMsg();
-
-        Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
-    }
-
-    @Test
-    public void Login_Failure_IncorrectCreden6tials()
-    {
-        var Menu = loadSite();
-
-        var LoginPage = Menu.goToLoginPage();
-
-        LoginPage.enterUsername("emailNotFound@hotmail.com")
-                .enterPassword("123456789")
-                .clickSignIn();
-
-        var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
-
-        var ActualErrorMsg = LoginPage.GetActualErrorMsg();
-
-        Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
-    }
-
-    @Test
-    public void Login_Failure_IncorrectCreden7tials()
-    {
-        var Menu = loadSite();
-
-        var LoginPage = Menu.goToLoginPage();
-
-        LoginPage.enterUsername("emailNotFound@hotmail.com")
-                .enterPassword("123456789")
-                .clickSignIn();
-
-        var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
-
-        var ActualErrorMsg = LoginPage.GetActualErrorMsg();
-
-        Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
-    }
-
-    @Test
-    public void Login_Failure_IncorrectCrede7ntials()
-    {
-        var Menu = loadSite();
-
-        var LoginPage = Menu.goToLoginPage();
-
-        LoginPage.enterUsername("emailNotFound@hotmail.com")
-                .enterPassword("123456789")
-                .clickSignIn();
-
-        var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
-
-        var ActualErrorMsg = LoginPage.GetActualErrorMsg();
-
-        Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
-    }
+//    @Test
+//    public void Login_Failure_IncorrectCred3entials()
+//    {
+//        LOG().info("testDebugFromClass");
+//
+//        var Menu = loadSite();
+//
+//        var LoginPage = Menu.goToLoginPage();
+//
+//        LoginPage.enterUsername("emailNotFound@hotmail.com")
+//                .enterPassword("123456789")
+//                .clickSignIn();
+//
+//        var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
+//
+//        var ActualErrorMsg = LoginPage.GetActualErrorMsg();
+//
+//        Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
+//    }
+//
+//    @Test
+//    public void Login_Failure_IncorrectCrede4ntials()
+//    {
+//        LOG().info("testDebugFromClass");
+//
+//        var Menu = loadSite();
+//
+//        var LoginPage = Menu.goToLoginPage();
+//
+//        LoginPage.enterUsername("emailNotFound@hotmail.com")
+//                .enterPassword("123456789")
+//                .clickSignIn();
+//
+//        var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
+//
+//        var ActualErrorMsg = LoginPage.GetActualErrorMsg();
+//
+//        Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
+//    }
+//
+//    @Test
+//    public void Login_Failure_IncorrectCreden5tials()
+//    {
+//        LOG().info("testDebugFromClass");
+//
+//        var Menu = loadSite();
+//
+//        var LoginPage = Menu.goToLoginPage();
+//
+//        LoginPage.enterUsername("emailNotFound@hotmail.com")
+//                .enterPassword("123456789")
+//                .clickSignIn();
+//
+//        var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
+//
+//        var ActualErrorMsg = LoginPage.GetActualErrorMsg();
+//
+//        Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
+//    }
+//
+//    @Test
+//    public void Login_Failure_IncorrectCreden6tials()
+//    {
+//        LOG().info("testDebugFromClass");
+//
+//        var Menu = loadSite();
+//
+//        var LoginPage = Menu.goToLoginPage();
+//
+//        LoginPage.enterUsername("emailNotFound@hotmail.com")
+//                .enterPassword("123456789")
+//                .clickSignIn();
+//
+//        var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
+//
+//        var ActualErrorMsg = LoginPage.GetActualErrorMsg();
+//
+//        Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
+//    }
+//
+//    @Test
+//    public void Login_Failure_IncorrectCreden7tials()
+//    {
+//        LOG().info("testDebugFromClass");
+//
+//        var Menu = loadSite();
+//
+//        var LoginPage = Menu.goToLoginPage();
+//
+//        LoginPage.enterUsername("emailNotFound@hotmail.com")
+//                .enterPassword("123456789")
+//                .clickSignIn();
+//
+//        var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
+//
+//        var ActualErrorMsg = LoginPage.GetActualErrorMsg();
+//
+//        Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
+//    }
+//
+//    @Test
+//    public void Login_Failure_IncorrectCrede7ntials()
+//    {
+//        LOG().info("testDebugFromClass");
+//
+//        var Menu = loadSite();
+//
+//        var LoginPage = Menu.goToLoginPage();
+//
+//        LoginPage.enterUsername("emailNotFound@hotmail.com")
+//                .enterPassword("123456789")
+//                .clickSignIn();
+//
+//        var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
+//
+//        var ActualErrorMsg = LoginPage.GetActualErrorMsg();
+//
+//        Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
+//    }
 }

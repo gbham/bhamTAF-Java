@@ -1,27 +1,22 @@
-import io.github.cdimascio.dotenv.Dotenv;
+import handler.DriverFactory;
+import handler.LoggerFactory;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import factory.DriverFactory;
 import pages.HomePage;
 import pages.Menu;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 
 public class BaseTest {
 
-    //protected String TEST_DIR;
-
-    //**Changes made in here are not persisting when I run the tests in the Jenkins pipeline. Cannot resolve "TEST_DIR" inside takeScreenshot().
-    //Just going to save files in working directory and archive them using Jenkinsfile for this now
     @BeforeSuite
-    public void createTestDirectory() throws MalformedURLException
+    public void beforeSuite() throws IOException
     {
         File dir1 = new File("TestResults\\Screenshots");
         File dir2 = new File("TestResults\\Logs");
@@ -29,34 +24,27 @@ public class BaseTest {
         dir1.mkdirs();
         dir2.mkdirs();
 
+        LoggerFactory.InitialiseLogger();
     }
 
-//    @BeforeMethod
-//    public void setUpDriver() throws MalformedURLException
-//    {
-//        if(SELENIUM_GRID.equals("true"))
-//        {
-//            //this.Driver = getRemoteDriver();
-//        }
-//        else
-//        {
-//
-//            //this.Driver = getLocalDriver();
-//        }
-//    }
+    @BeforeMethod
+    public void beforeMethod()
+    {
+    }
 
     @AfterMethod
-    public void cleanUp(ITestResult testResult) throws IOException
+    public void afterMethod(ITestResult testResult) throws IOException
     {
         if(!testResult.isSuccess())
         {
             this.takeScreenshot(testResult);
         }
 
+        LoggerFactory.getInstance().removeLogger();
         DriverFactory.getInstance().removeDriver();
     }
 
-    //need separate local and remote versions of this function
+    //need separate local and remote versions of this function (logs/screenshots are archived when remote)
     public void takeScreenshot(ITestResult testResult) throws IOException
     {
         TakesScreenshot TS = ((TakesScreenshot)DriverFactory.getInstance().getDriver());
@@ -69,7 +57,7 @@ public class BaseTest {
 
     public Menu loadSite()
     {
-        var HomePage = new HomePage(); //Driver
+        var HomePage = new HomePage();
         HomePage.loadSite();
 
         return new Menu();

@@ -1,6 +1,6 @@
 package pages;
 
-import factory.DriverFactory;
+import handler.DriverFactory;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class HomePage extends WebPage {
