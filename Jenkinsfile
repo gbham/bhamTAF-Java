@@ -86,7 +86,8 @@ pipeline {
                 post {
                         always {
                                 bat "dir"
-                                archiveArtifacts artifacts: "Chrome/TestResults, allowEmptyArchive: true"
+                                archiveArtifacts artifacts: "Chrome/TestResults/Screenshots, allowEmptyArchive: true"
+                                archiveArtifacts artifacts: "Chrome/TestResults/Logs, allowEmptyArchive: true"
                                 archiveArtifacts artifacts: "Chrome/target/surefire-reports/**/*.xml"
                                 //archiveArtifacts artifacts: 'Edge/TestResults/**/*.*'
                                 //bat "docker-compose -f Chrome/docker-env-setup.yaml down"
