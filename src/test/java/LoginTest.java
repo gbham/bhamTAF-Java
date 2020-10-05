@@ -51,6 +51,8 @@ public class LoginTest extends BaseTest{
 
         var ActualPageTitle = MyAccountPage.getActualPageTitle();
 
+        Assert.assertEquals(1, 2);
+
         Assert.assertEquals(ExpectedPageTitle, ActualPageTitle);
     }
 
