@@ -41,7 +41,7 @@ pipeline {
                                 //parallel {
                                         stage('Chrome Parallel Tests') {
                                                 steps {
-                                                        bat "mvn test -f Chrome/pom.xml -D threadCount=4,groups=ChromeParallel"
+                                                        bat "mvn test -f Chrome/pom.xml -D threadCount=4&groups=ChromeParallel"
                                                 }
                                                 post {
                                                         always {
