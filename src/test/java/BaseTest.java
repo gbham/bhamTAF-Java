@@ -12,6 +12,7 @@ import pages.Menu;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 public class BaseTest {
 
@@ -44,15 +45,17 @@ public class BaseTest {
         DriverFactory.getInstance().removeDriver();
     }
 
-    //need separate local and remote versions of this function (logs/screenshots are archived when remote)
+    //need separate local and remote versions of this function (logs/screenshots are archived when remote, need to handle the local ones that will get overwritten)
     public void takeScreenshot(ITestResult testResult) throws IOException
     {
-        TakesScreenshot TS = ((TakesScreenshot)DriverFactory.getInstance().getDriver());
+        TakesScreenshot TS = ((TakesScreenshot) DriverFactory.getInstance().getDriver());
         File srcFile = TS.getScreenshotAs(OutputType.FILE);
 
         File destFile = new File(String.format("TestResults\\Screenshots\\%1$s.png", testResult.getName()));
 
         FileUtils.copyFile(srcFile, destFile);
+
+        LOG().info("Screenshot Captured");
     }
 
     public Menu loadSite()
@@ -61,5 +64,10 @@ public class BaseTest {
         HomePage.loadSite();
 
         return new Menu();
+    }
+
+    public Logger LOG()
+    {
+        return LoggerFactory.getInstance().getLogger();
     }
 }

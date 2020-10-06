@@ -36,7 +36,7 @@ public class LoginTest extends BaseTest{
 
 
 
-    @Test
+    @Test (groups = {"ChromeParallel", "EdgeParallel"})
     public void Login_Successful()
     {
         var Menu = loadSite();
@@ -51,12 +51,10 @@ public class LoginTest extends BaseTest{
 
         var ActualPageTitle = MyAccountPage.getActualPageTitle();
 
-        Assert.assertEquals(1, 2);
-
         Assert.assertEquals(ExpectedPageTitle, ActualPageTitle);
     }
 
-     @Test
+    @Test (groups = {"ChromeSingle", "EdgeSingle"})
      public void Login_Failure_InvalidEmail()
      {
          var Menu = loadSite();
@@ -74,7 +72,7 @@ public class LoginTest extends BaseTest{
          Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
      }
 
-     @Test
+    @Test (groups = {"ChromeParallel", "EdgeParallel"})
      public void Login_Failure_InvalidPassword()
      {
          var Menu = loadSite();
@@ -91,26 +89,24 @@ public class LoginTest extends BaseTest{
 
          Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
      }
-//
-//     @Test
-//     public void Login_Failure_IncorrectCre2dentials()
-//     {
-//         LOG().info("testDebugFromClass");
-//
-//         var Menu = loadSite();
-//
-//         var LoginPage = Menu.goToLoginPage();
-//
-//         LoginPage.enterUsername("emailNotFound@hotmail.com")
-//                  .enterPassword("123456789")
-//                  .clickSignIn();
-//
-//         var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
-//
-//         var ActualErrorMsg = LoginPage.GetActualErrorMsg();
-//
-//         Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
-//     }
+
+     @Test (groups = {"ChromeParallel", "EdgeParallel"})
+     public void Login_Failure_IncorrectCre2dentials()
+     {
+         var Menu = loadSite();
+
+         var LoginPage = Menu.goToLoginPage();
+
+         LoginPage.enterUsername("emailNotFound@hotmail.com")
+                  .enterPassword("123456789")
+                  .clickSignIn();
+
+         var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
+
+         var ActualErrorMsg = LoginPage.GetActualErrorMsg();
+
+         Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
+     }
 
 //    @Test
 //    public void Login_Failure_IncorrectCred3entials()

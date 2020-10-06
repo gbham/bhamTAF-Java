@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.*;
 
-
 public class LoggerFactory
 {
     public static void InitialiseLogger() throws IOException
@@ -30,6 +29,7 @@ public class LoggerFactory
         try {
             handler = new FileHandler(String.format("TestResults\\Logs\\%1s.txt", TestMethodCapture.getTestMethod().getMethodName()), true);
             logger.addHandler(handler);
+            logger.info(String.format("Test Started: [%1s]", TestMethodCapture.getTestMethod().getMethodName()));
             logger.info("Logger Initialised");
         } catch (IOException e) {
             e.printStackTrace();

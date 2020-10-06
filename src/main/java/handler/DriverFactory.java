@@ -28,6 +28,7 @@ public class DriverFactory
         {
             try
             {
+                LoggerFactory.getInstance().getLogger().info("Creating Remote Driver ...");
                 return getRemoteDriver();
             }
             catch (MalformedURLException e) {
@@ -36,6 +37,7 @@ public class DriverFactory
         }
         else
         {
+            LoggerFactory.getInstance().getLogger().info("Creating Local Driver ...");
             return getLocalDriver();
         }
 
@@ -50,7 +52,7 @@ public class DriverFactory
 
     public void removeDriver()
     {
-        driver.get().quit();
+        driver.get().close();
         driver.remove();
     }
 

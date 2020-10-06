@@ -20,6 +20,7 @@ public class HomePage extends WebPage {
 
     public void loadSite()
     {
+        LOG().info(String.format("Driver connecting to: [%1s]", BASE_URL));
         DriverFactory.getInstance().getDriver().get(BASE_URL);
     }
 }
