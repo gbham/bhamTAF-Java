@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 public class BaseTest {
 
-    @BeforeSuite
+    @BeforeSuite (alwaysRun = true)
     public void beforeSuite() throws IOException
     {
         File dir1 = new File("TestResults\\Screenshots");
@@ -28,12 +28,12 @@ public class BaseTest {
         LoggerFactory.InitialiseLogger();
     }
 
-    @BeforeMethod
+    @BeforeMethod (alwaysRun = true)
     public void beforeMethod()
     {
     }
 
-    @AfterMethod
+    @AfterMethod (alwaysRun = true)
     public void afterMethod(ITestResult testResult) throws IOException
     {
         if(!testResult.isSuccess())
