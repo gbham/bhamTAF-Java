@@ -52,6 +52,12 @@ public class LoginTest extends BaseTest{
 
         var ActualPageTitle = MyAccountPage.getActualPageTitle();
 
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         Assert.assertEquals(ExpectedPageTitle, ActualPageTitle);
     }
 
