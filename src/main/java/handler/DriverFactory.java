@@ -52,7 +52,7 @@ public class DriverFactory
 
     public void removeDriver()
     {
-        driver.get().close();   
+        driver.get().quit(); //Cant run multiple instances of the same browser on the same node. We need driver.quit() to clean up (which removes all windows), since driver.close() doesnt clean memory.
         driver.remove();
     }
 
