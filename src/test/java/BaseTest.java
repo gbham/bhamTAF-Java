@@ -38,7 +38,17 @@ public class BaseTest {
     {
         if(!testResult.isSuccess())
         {
+            LOG().warning("[TEST FAILED] - " + testResult.getThrowable().toString());
+            for(int i=0; i<testResult.getThrowable().getStackTrace().length; i++)
+            {
+                LOG().warning(testResult.getThrowable().getStackTrace()[i].toString());
+            }
+
             this.takeScreenshot(testResult);
+        }
+        else
+        {
+            LOG().info("[TEST PASSED]");
         }
 
         LoggerFactory.getInstance().removeLogger();

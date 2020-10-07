@@ -29,6 +29,7 @@ public class LoggerFactory
         try {
             handler = new FileHandler(String.format("TestResults\\Logs\\%1s.txt", TestMethodCapture.getTestMethod().getMethodName()), true);
             logger.addHandler(handler);
+            logger.info("----------------------------------------------------------------------------------------");
             logger.info(String.format("Test Started: [%1s]", TestMethodCapture.getTestMethod().getMethodName()));
             logger.info("Logger Initialised");
         } catch (IOException e) {

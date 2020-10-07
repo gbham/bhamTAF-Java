@@ -26,6 +26,7 @@
                     <configuration>
                         <parallel>methods</parallel>
                         <parallelTestsTimeoutForcedInSeconds>35</parallelTestsTimeoutForcedInSeconds>
+                        <trimStackTrace>false</trimStackTrace>
                     </configuration>
                 </plugin>
             </plugins>
