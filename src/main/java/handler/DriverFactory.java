@@ -52,7 +52,7 @@ public class DriverFactory
 
     public void removeDriver()
     {
-        driver.get().quit();
+        driver.get().close();   
         driver.remove();
     }
 
