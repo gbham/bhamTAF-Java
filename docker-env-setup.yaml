@@ -37,10 +37,36 @@ services:
       - "9002:5900"
     links:
       - hub
-      
+
+  chrome3:
+    image: selenium/node-chrome-debug
+    depends_on:
+      - hub
+    environment:
+      HUB_PORT_4444_TCP_ADDR: hub
+      HUB_PORT_4444_TCP_PORT: 4444
+      NODE_MAX_SESSION: 1
+      NODE_MAX_INSTANCES: 1
+    ports:
+      - "9003:5900"
+    links:
+      - hub
+
+  chrome4:
+    image: selenium/node-chrome-debug
+    depends_on:
+      - hub
+    environment:
+      HUB_PORT_4444_TCP_ADDR: hub
+      HUB_PORT_4444_TCP_PORT: 4444
+      NODE_MAX_SESSION: 1
+      NODE_MAX_INSTANCES: 1
+    ports:
+      - "9004:5900"
+    links:
+      - hub
+
   testApp:
     image: bulletinboard:1.0
     ports:
       - "8000:8080"
-  
-    
