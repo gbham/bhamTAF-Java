@@ -91,43 +91,43 @@ public class LoginTest extends BaseTest{
          Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
      }
 
-//     @Test (groups = {"ChromeSingle", "EdgeParallel"})
-//     public void Login_Failure_IncorrectCre2dentials()
-//     {
-//         var Menu = loadSite();
-//
-//         var LoginPage = Menu.goToLoginPage();
-//
-//         LoginPage.enterUsername("emailNotFound@hotmail.com")
-//                  .enterPassword("123456789")
-//                  .clickSignIn();
-//
-//         var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
-//
-//         var ActualErrorMsg = LoginPage.GetActualErrorMsg();
-//
-//         Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
-//     }
+     @Test (groups = {"ChromeParallel"})
+     public void Login_Failure_IncorrectCre2dentials()
+     {
+         var Menu = loadSite();
 
-//    @Test
-//    public void Login_Failure_IncorrectCred3entials()
-//    {
-//        LOG().info("testDebugFromClass");
-//
-//        var Menu = loadSite();
-//
-//        var LoginPage = Menu.goToLoginPage();
-//
-//        LoginPage.enterUsername("emailNotFound@hotmail.com")
-//                .enterPassword("123456789")
-//                .clickSignIn();
-//
-//        var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
-//
-//        var ActualErrorMsg = LoginPage.GetActualErrorMsg();
-//
-//        Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
-//    }
+         var LoginPage = Menu.goToLoginPage();
+
+         LoginPage.enterUsername("emailNotFound@hotmail.com")
+                  .enterPassword("123456789")
+                  .clickSignIn();
+
+         var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
+
+         var ActualErrorMsg = LoginPage.GetActualErrorMsg();
+
+         Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
+     }
+
+    @Test (groups = {"ChromeParallel"})
+    public void Login_Failure_IncorrectCred3entials()
+    {
+        LOG().info("testDebugFromClass");
+
+        var Menu = loadSite();
+
+        var LoginPage = Menu.goToLoginPage();
+
+        LoginPage.enterUsername("emailNotFound@hotmail.com")
+                .enterPassword("123456789")
+                .clickSignIn();
+
+        var ExpectedErrorMsg = LoginPage.ErrorMsgs.get("IncorrectCredentials");
+
+        var ActualErrorMsg = LoginPage.GetActualErrorMsg();
+
+        Assert.assertEquals(ExpectedErrorMsg, ActualErrorMsg);
+    }
 //
 //    @Test
 //    public void Login_Failure_IncorrectCrede4ntials()
