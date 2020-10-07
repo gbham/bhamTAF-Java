@@ -34,7 +34,7 @@ services:
       NODE_MAX_SESSION: 1
       NODE_MAX_INSTANCES: 1
     ports:
-      - "9002:5900"
+      - "9005:5900"
     links:
       - hub
 
