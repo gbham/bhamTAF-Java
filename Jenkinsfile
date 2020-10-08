@@ -90,7 +90,7 @@ pipeline {
                                 //archiveArtifacts artifacts: "Chrome/target/surefire-reports/**/*.xml"
                                 //archiveArtifacts artifacts: 'Edge/TestResults/**/*.*'
                                 //bat "docker-compose -f Chrome/docker-env-setup.yaml down"
-                                //deleteDir()
+                                deleteDir()
                         }
                 }
 }
