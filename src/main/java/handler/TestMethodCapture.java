@@ -6,7 +6,7 @@ import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-//Found this class online. It is required so the LoggerFactory class can get the test name in a non-static context
+//Found this class online. It is required so the LoggerFactory class can get the test name in a non-static context - I use it in quite a few places now.
 
 public class TestMethodCapture implements IInvokedMethodListener {
     private static ThreadLocal<ITestNGMethod> currentMethods = new ThreadLocal<>();

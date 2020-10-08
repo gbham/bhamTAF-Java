@@ -10,11 +10,11 @@ pipeline {
                         //                bat 'Xcopy /E "Chrome" "Edge\"' 
                         //        }                                
                         //}
-                        stage('Start Selenium Grid & Test App (Docker)') {
-                                steps {
-                                        bat "docker-compose -f Chrome/docker-env-setup.yaml up -d"
-                                }
-                        }
+                        //stage('Start Selenium Grid & Test App (Docker)') {
+                        //        steps {
+                        //                bat "docker-compose -f Chrome/docker-env-setup.yaml up -d"
+                        //        }
+                        //}
                         stage('Create .env files') {
                                 steps {
                                         bat "echo BASE_URL=${BASE_URL} >> Chrome/src/main/resources/.env"                                        
@@ -87,9 +87,10 @@ pipeline {
                         always {
 
                                 archiveArtifacts artifacts: "Chrome/TestResults/**/*.*, allowEmptyArchive: true"
+                                archiveArtifacts artifacts: "C:/TestResults/VideoRecordings/**/*.*, allowEmptyArchive: true"
                                 //archiveArtifacts artifacts: "Chrome/target/surefire-reports/**/*.xml"
                                 //archiveArtifacts artifacts: 'Edge/TestResults/**/*.*'
-                                bat "docker-compose -f Chrome/docker-env-setup.yaml down"
+                                //bat "docker-compose -f Chrome/docker-env-setup.yaml down"
                                 deleteDir()
                         }
                 }
