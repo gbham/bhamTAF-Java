@@ -77,6 +77,7 @@ public class DriverFactory
 //        {
             //case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.setCapability("testFileNameTemplate", TestMethodCapture.getTestMethod().getMethodName());
                 //chromeOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
                 return new RemoteWebDriver(new URL(SELENIUM_HUB_URL), chromeOptions);
                 //break;

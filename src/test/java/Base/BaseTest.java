@@ -22,21 +22,23 @@ public class BaseTest {
     public void beforeSuite() throws IOException
     {
         File dir1 = new File("TestResults\\Screenshots");
-        File dir2 = new File("TestResults\\Logs");
+        File dir2 = new File("TestResults\\VideoRecordings");
+        File dir3 = new File("TestResults\\Logs");
 
         dir1.mkdirs();
         dir2.mkdirs();
+        dir3.mkdirs();
 
         LoggerFactory.InitialiseLogger();
     }
 
     @BeforeMethod (alwaysRun = true)
-    public void beforeMethod()
+    public void beforeMethod(ITestResult testResult) throws Exception
     {
     }
 
     @AfterMethod (alwaysRun = true)
-    public void afterMethod(ITestResult testResult) throws IOException
+    public void afterMethod(ITestResult testResult) throws Exception
     {
         if(!testResult.isSuccess())
         {
@@ -46,7 +48,7 @@ public class BaseTest {
                 LOG().warning(testResult.getThrowable().getStackTrace()[i].toString());
             }
 
-            this.takeScreenshot(testResult);
+            takeScreenshot(testResult);
         }
         else
         {
