@@ -1,3 +1,5 @@
+package LoginTests;
+
 import Base.BaseTest;
 import handler.TestMethodCapture;
 import org.testng.Assert;
