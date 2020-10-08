@@ -1,11 +1,11 @@
+import Base.BaseTest;
 import handler.TestMethodCapture;
-import org.junit.experimental.categories.Category;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(TestMethodCapture.class)
-public class LoginTest extends BaseTest{
+public class LoginTest extends BaseTest {
 
 
 //    @Test
@@ -112,8 +112,6 @@ public class LoginTest extends BaseTest{
     @Test (groups = {"ChromeParallel"})
     public void Login_Failure_IncorrectCred3entials()
     {
-        LOG().info("testDebugFromClass");
-
         var Menu = loadSite();
 
         var LoginPage = Menu.goToLoginPage();
