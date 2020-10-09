@@ -96,9 +96,10 @@ pipeline {
                                 //archiveArtifacts artifacts: 'Edge/TestResults/**/*.*'
                                 //bat "docker-compose -f Chrome/docker-env-setup.yaml down"
                                 //sh "docker container kill \$(docker ps -q)"
-                                sh '''#!/bin/bash
-                                        docker container kill \$(docker ps -q) 
-                                         '''
+                                sh "\$(docker ps -q)"
+                                //sh '''#!/bin/bash
+                                //        docker container kill \$(docker ps -q) 
+                                //         '''
                                 deleteDir()
                         }
                 }
