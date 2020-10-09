@@ -86,11 +86,11 @@ pipeline {
                 post {
                         always {
                                 dir('C:/TestResults/') {
-                                    archiveArtifacts artifacts: "VideoRecordings/**/*.mp4, allowEmptyArchive: true"
+                                        archiveArtifacts artifacts: "VideoRecordings/**/*.mp4, allowEmptyArchive: true"
+                                        deleteDir()        
                                 }
 
-                                archiveArtifacts artifacts: "Chrome/TestResults/**/*.*, allowEmptyArchive: true"
-                                //archiveArtifacts artifacts: "C:/TestResults/VideoRecordings/**/*.*, allowEmptyArchive: true"
+                                archiveArtifacts artifacts: "Chrome/TestResults/**/*.*, allowEmptyArchive: true"                                
                                 //archiveArtifacts artifacts: "Chrome/target/surefire-reports/**/*.xml"
                                 //archiveArtifacts artifacts: 'Edge/TestResults/**/*.*'
                                 //bat "docker-compose -f Chrome/docker-env-setup.yaml down"
