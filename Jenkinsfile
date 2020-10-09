@@ -88,7 +88,7 @@ pipeline {
                                 dir('C:/TestResults/') {
                                         archiveArtifacts artifacts: "VideoRecordings/**/*.mp4, allowEmptyArchive: true"
                                         sleep 2
-                                        deleteDir()        
+                                        //deleteDir()        
                                 }
 
                                 archiveArtifacts artifacts: "Chrome/TestResults/**/*.*, allowEmptyArchive: true"                                
