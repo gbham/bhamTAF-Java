@@ -85,10 +85,10 @@ pipeline {
                 }
                 post {
                         always {
-                                dir('C:/TestResults/') {
-                                        archiveArtifacts artifacts: "VideoRecordings/**/*.mp4, allowEmptyArchive: true"
-                                        sleep 2
-                                        //deleteDir()        
+                                dir('C:/TestResults/VideoRecordings/') {
+                                        archiveArtifacts artifacts: "/**/*.mp4, allowEmptyArchive: true"
+                                        sleep 5
+                                        deleteDir()        
                                 }
 
                                 archiveArtifacts artifacts: "Chrome/TestResults/**/*.*, allowEmptyArchive: true"                                
