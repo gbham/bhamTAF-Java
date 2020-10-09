@@ -95,7 +95,10 @@ pipeline {
                                 //archiveArtifacts artifacts: "Chrome/target/surefire-reports/**/*.xml"
                                 //archiveArtifacts artifacts: 'Edge/TestResults/**/*.*'
                                 //bat "docker-compose -f Chrome/docker-env-setup.yaml down"
-                                sh "docker container kill \$(docker ps -q)"
+                                //sh "docker container kill \$(docker ps -q)"
+                                bash '''#!/bin/bash
+                                                 docker container kill \$(docker ps -q) 
+                                         '''
                                 deleteDir()
                         }
                 }
