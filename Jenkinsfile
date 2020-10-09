@@ -86,7 +86,7 @@ pipeline {
                 post {
                         always {
                                 dir('C:/TestResults/') {
-                                    archiveArtifacts artifacts: "VideoRecordings/**/*.*, allowEmptyArchive: true"
+                                    archiveArtifacts artifacts: "VideoRecordings/**/*.mp4, allowEmptyArchive: true"
                                 }
 
                                 archiveArtifacts artifacts: "Chrome/TestResults/**/*.*, allowEmptyArchive: true"
