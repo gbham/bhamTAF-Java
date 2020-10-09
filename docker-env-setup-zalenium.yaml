@@ -1,0 +1,25 @@
+version: "3"
+services:
+  hub:
+    image: dosel/zalenium
+    ports:
+      - "4444:4444"
+    volumes:
+      - C:/TestResults/VideoRecordings:/home/seluser/videos
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: >
+      start --desiredContainers 2
+            --maxDockerSeleniumContainers 8
+            --screenWidth 800 --screenHeight 600
+            --timeZone "Europe/London"
+            --videoRecordingEnabled true
+            --sauceLabsEnabled false
+            --browserStackEnabled false
+            --testingBotEnabled false
+            --cbtEnabled false
+            --lambdaTestEnabled false
+            --startTunnel false
+  testApp:
+    image: bulletinboard:1.0
+    ports:
+      - "8000:8080"
