@@ -4,6 +4,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -77,7 +78,7 @@ public class DriverFactory
 //        {
             //case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.setCapability("testFileNameTemplate", TestMethodCapture.getTestMethod().getMethodName());
+                chromeOptions.setCapability("testFileNameTemplate", String.format("1%s_2%s", BROWSER_TYPE, TestMethodCapture.getTestMethod().getMethodName()));
                 //chromeOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
                 return new RemoteWebDriver(new URL(SELENIUM_HUB_URL), chromeOptions);
                 //break;
