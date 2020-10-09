@@ -87,7 +87,7 @@ pipeline {
                         always {
                                 dir('C:/TestResults/') {
                                         archiveArtifacts artifacts: "VideoRecordings/**/*.mp4, allowEmptyArchive: true"
-                                        sleep 5
+                                        //sleep 5
                                         bat "del VideoRecordings\\*.mp4 /f/s/q "       
                                 }
 
