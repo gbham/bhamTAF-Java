@@ -17,6 +17,7 @@ pipeline {
                         //}
                         stage('Create .env files') {
                                 steps {
+                                        sh "ls"
                                         bat "echo BASE_URL=${BASE_URL} >> Chrome/src/main/resources/.env"                                        
                                         bat "echo SELENIUM_GRID=${SELENIUM_GRID} >> Chrome/src/main/resources/.env"
                                         bat "echo SELENIUM_HUB_URL=${SELENIUM_HUB_URL} >> Chrome/src/main/resources/.env"
