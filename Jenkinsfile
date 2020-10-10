@@ -12,7 +12,7 @@ pipeline {
                         //}
                         //stage('Start Selenium Grid & Test App (Docker)') {
                         //        steps {
-                        //                bat "docker-compose -f Chrome/docker-env-setup.yaml up -d"
+                        //                bat "docker-compose -f Chrome/docker-env-setup-zalenium.yaml up -d"
                         //        }
                         //}
                         stage('Create .env files') {
@@ -67,7 +67,7 @@ pipeline {
                                 }
                                 post {
                                         always {
-                                                junit "Chrome/target/surefire-reports/**/*.xml"
+                                                //junit "Chrome/target/surefire-reports/**/*.xml"
                                         }
                                 }
                         }
@@ -94,13 +94,10 @@ pipeline {
                                 archiveArtifacts artifacts: "Chrome/TestResults/**/*.*, allowEmptyArchive: true"                                
                                 //archiveArtifacts artifacts: "Chrome/target/surefire-reports/**/*.xml"
                                 //archiveArtifacts artifacts: 'Edge/TestResults/**/*.*'
+                                  
+                                //Can't close docker the clean way as zalenium spawns dynamic nodes (elgalu/selenium) not included in the yaml file. 
                                 //bat "docker-compose -f Chrome/docker-env-setup.yaml down"
-                                //sh "docker container kill \$(docker ps -q)"
-                                powershell 'docker container kill $(docker ps -q)'
-                                //sh 'ls'
-                                //sh '''#!/bin/bash
-                                //        docker container kill \$(docker ps -q) 
-                                //         '''
+                                powershell 'docker container kill $(docker ps -q)'                                
                                 deleteDir()
                         }
                 }
