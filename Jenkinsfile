@@ -65,11 +65,11 @@ pipeline {
                                 steps {
                                         bat "mvn test -f Chrome/pom.xml -Dgroups=ChromeSingle"
                                 }
-                                post {
-                                        always {
+                                //post {
+                                //        always {
                                                 //junit "Chrome/target/surefire-reports/**/*.xml"
-                                        }
-                                }
+                                //        }
+                                //}
                         }
                         //stage('Edge Single Tests') {
                         //        steps {
