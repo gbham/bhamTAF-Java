@@ -10,11 +10,11 @@ pipeline {
                         //                bat 'Xcopy /E "Chrome" "Edge\"' 
                         //        }                                
                         //}
-                        //stage('Start Selenium Grid & Test App (Docker)') {
-                        //        steps {
-                        //                bat "docker-compose -f Chrome/docker-env-setup-zalenium.yaml up -d"
-                        //        }
-                        //}
+                        stage('Start Selenium Grid & Test App (Docker)') {
+                                steps {
+                                        bat "docker-compose -f Chrome/docker-env-setup-zalenium.yaml up -d"
+                                }
+                        }
                         stage('Create .env files') {
                                 steps {                                        
                                         bat "echo BASE_URL=${BASE_URL} >> Chrome/src/main/resources/.env"                                        
@@ -96,7 +96,7 @@ pipeline {
                                 //archiveArtifacts artifacts: 'Edge/TestResults/**/*.*'
                                   
                                 //Can't close docker the clean way as zalenium spawns dynamic nodes (elgalu/selenium) not included in the yaml file. 
-                                //bat "docker-compose -f Chrome/docker-env-setup.yaml down"
+                                //bat "docker-compose -f Chrome/docker-env-setup-zalenium.yaml down"
                                 powershell 'docker container kill $(docker ps -q)'                                
                                 deleteDir()
                         }
